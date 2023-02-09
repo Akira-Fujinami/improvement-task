@@ -58,7 +58,7 @@ class RegisterController extends Controller
         return view('auth.register.register', compact('subjects'));
     }
     public function store(Request $request){
-        $request->validate([//バリデーションを行う
+            $validated=$request->validate([//バリデーションを行う
             'over_name' => 'required|string|max:10',
             'under_name' => 'required|string|max:10',
             'over_name_kana' => 'required|string|max:30',
@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'role' => 'required',
             'password' => 'required|string|min:8|max:30|confirmed',//confirmedは最初に書く
             'password_confirmation' => 'required|string|min:8|max:30']);//名前_confirmation
-            return view('auth.login.login');
+            return redirect('/login');
     }
     public function registerPost(Request $request)
     {
@@ -97,10 +97,10 @@ class RegisterController extends Controller
             ]);
             $user = User::findOrFail($user_get->id);
             DB::commit();
-            return view('auth.login.login');
+            return redirect('/register/create');
         }catch(\Exception $e){
             DB::rollback();
-            return redirect()->route('loginView');
+            return redirect()->route('store');
         }
     }
 }
