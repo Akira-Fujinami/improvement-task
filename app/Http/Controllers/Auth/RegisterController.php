@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Validation\Rule;
 
 use App\Models\Users\Subjects;
 
@@ -56,7 +57,23 @@ class RegisterController extends Controller
         $subjects = Subjects::all();
         return view('auth.register.register', compact('subjects'));
     }
-
+    public function store(Request $request){
+        $request->validate([//バリデーションを行う
+            'over_name' => 'required|string|max:10',
+            'under_name' => 'required|string|max:10',
+            'over_name_kana' => 'required|string|max:30',
+            'under_name_kana' => 'required|string|max:30',
+            'mail_address' => ['required','email','string','max:100',Rule::unique('users','mail_address')],
+            'sex' => 'required',
+            'year' => 'nullable|present|numeric|required_with:month,day',
+            'month' => 'nullable|present|numeric|required_with:year,day',
+            'day' => 'nullable|present|numeric|required_with:year,month',
+            'full_date' => 'nullable|date|before_or_equal:' . today()->format('Y-m-d'),
+            'role' => 'required',
+            'password' => 'required|string|min:8|max:30|confirmed',//confirmedは最初に書く
+            'password_confirmation' => 'required|string|min:8|max:30']);//名前_confirmation
+            return view('auth.login.login');
+    }
     public function registerPost(Request $request)
     {
         DB::beginTransaction();
@@ -67,7 +84,6 @@ class RegisterController extends Controller
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
-
             $user_get = User::create([
                 'over_name' => $request->over_name,
                 'under_name' => $request->under_name,
@@ -80,7 +96,6 @@ class RegisterController extends Controller
                 'password' => bcrypt($request->password)
             ]);
             $user = User::findOrFail($user_get->id);
-            $user->subjects()->attach($subjects);
             DB::commit();
             return view('auth.login.login');
         }catch(\Exception $e){
