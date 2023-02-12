@@ -97,10 +97,10 @@ class RegisterController extends Controller
             ]);
             $user = User::findOrFail($user_get->id);
             DB::commit();
-            return redirect('/register/create');
+            return redirect('/login');
         }catch(\Exception $e){
             DB::rollback();
-            return redirect()->route('store');
+            return redirect()->route('loginView');
         }
     }
 }
