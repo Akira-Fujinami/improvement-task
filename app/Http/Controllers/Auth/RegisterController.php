@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Validation\Rule;
+use App\Http\Requests\RegisterFormRequest;
 
 use App\Models\Users\Subjects;
 
@@ -74,7 +75,7 @@ class RegisterController extends Controller
             'password_confirmation' => 'required|string|min:8|max:30']);//名前_confirmation
             return redirect('/login');
     }
-    public function registerPost(Request $request)
+    public function registerPost(RegisterFormRequest $request)
     {
         DB::beginTransaction();
         try{

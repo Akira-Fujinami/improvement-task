@@ -11,6 +11,8 @@ use App\Models\Posts\PostComment;
 use App\Models\Posts\Like;
 use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
+use App\Http\Requests\BulletinBoard\MainFormRequest;
+use App\Http\Requests\BulletinBoard\SubFormRequest;
 use Auth;
 
 class PostsController extends Controller
@@ -19,6 +21,7 @@ class PostsController extends Controller
         $posts = Post::with('user', 'postComments','likes')->get();
         $categories = MainCategory::get();
         $like = new Like;
+        $likes= Like::select('like_user_id','like_post_id')->selectRaw('COUNT(like_post_id) as count')->groupBy('like_post_id')->count();
         $post_comment = new Post;
         if(!empty($request->keyword)){
             $posts = Post::with('user', 'postComments')
@@ -35,7 +38,7 @@ class PostsController extends Controller
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
         }
-        return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
+        return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'post_comment'));
     }
 
     public function postDetail($post_id){
@@ -45,7 +48,10 @@ class PostsController extends Controller
 
     public function postInput(){
         $main_categories = MainCategory::get();
-        return view('authenticated.bulletinboard.post_create', compact('main_categories'));
+        $sub_category_names=SubCategory::select('sub_categories.sub_category','main_categories.main_category as main_categories_main_category')
+        ->join('main_categories','main_categories.id','=','sub_categories.main_category_id')
+        ->get();
+        return view('authenticated.bulletinboard.post_create', compact('main_categories','sub_category_names'));
     }
 
     public function postCreate(PostFormRequest $request){
@@ -69,15 +75,19 @@ class PostsController extends Controller
         Post::findOrFail($id)->delete();
         return redirect()->route('post.show');
     }
-    public function mainCategoryCreate(Request $request){
+    public function mainCategoryCreate(MainFormRequest $request){
         MainCategory::create(['main_category' => $request->main_category_name]);
         return redirect()->route('post.input');
     }
-    public function subCategoryCreate(Request $request){
+    public function subCategoryCreate(SubFormRequest $request){
+        $sub_category_name=$request->sub_category_name;
+        $sub_category_names=SubCategory::select('sub_categories.sub_category','main_categories.main_category as main_categories_main_category')
+        ->join('main_categories','main_categories.id','=','sub_categories.main_category_id')
+        ->get();
         SubCategory::with('MainCategory')
         ->create(
             ['main_category_id'=>$request->sub_main_category_name,
-            'sub_category'=>$request->sub_category_name]);
+            'sub_category'=>$sub_category_name]);
             return back();
     }
     public function commentCreate(Request $request){

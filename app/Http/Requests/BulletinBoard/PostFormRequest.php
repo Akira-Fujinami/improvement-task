@@ -3,6 +3,8 @@
 namespace App\Http\Requests\BulletinBoard;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 
 class PostFormRequest extends FormRequest
 {

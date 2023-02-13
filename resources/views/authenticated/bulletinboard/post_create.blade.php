@@ -6,9 +6,10 @@
     <div class="">
       <p class="mb-0">カテゴリー</p>
       <select class="w-100" form="postCreate" name="post_category_id">
-        @foreach($main_categories as $main_category)
-        <optgroup label="{{ $main_category->main_category }}"></optgroup>
+      @foreach($sub_category_names as $sub_category_names)
+        <optgroup label="{{ $sub_category_names->main_categories_main_category }}"></optgroup>
         <!-- サブカテゴリー表示 -->
+        <option>{{$sub_category_names->sub_category}}</option>     
         </optgroup>
         @endforeach
       </select>
@@ -37,19 +38,29 @@
     <div class="category_area mt-5 p-5">
       <div class="">
         <p class="m-0">メインカテゴリー</p>
-        <input type="text" required class="w-100" name="main_category_name" form="mainCategoryRequest">
+        @if($errors->has('main_category_name'))
+			            @foreach($errors->get('main_category_name') as $message)
+				            {{ $message }}<br>
+			            @endforeach
+		            @endif 
+        <input type="text" class="w-100" name="main_category_name" form="mainCategoryRequest">
         <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="mainCategoryRequest">
       </div>
       <!-- サブカテゴリー追加 -->
       <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryRequest">{{ csrf_field() }}</form>
       <div class="">
         <p class="m-0">サブカテゴリー</p>
+        @if($errors->has('sub_category_name'))
+			            @foreach($errors->get('sub_category_name') as $message)
+				            {{ $message }}<br>
+			            @endforeach
+		            @endif 
         <select class="w-100" name="sub_main_category_name" form="subCategoryRequest">
         @foreach($main_categories as $main_category)
         <option label="{{ $main_category->main_category }}" value="{{$main_category->id}}" name="sub_main_categories" form="subCategoryRequest"></option>
         @endforeach
         </select>
-        <input type="text" required class="w-100" name="sub_category_name" form="subCategoryRequest">
+        <input type="text" class="w-100" name="sub_category_name" form="subCategoryRequest">
         <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="subCategoryRequest"> 
       </div>
       <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryRequest">{{ csrf_field() }}</form>
