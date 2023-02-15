@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Http\Request;
 
 class RegisterFormRequest extends FormRequest
 {
@@ -22,6 +23,23 @@ class RegisterFormRequest extends FormRequest
      *
      * @return array
      */
+    public function getValidatorInstance()
+    {
+        // プルダウンで選択された値(= 配列)を取得
+        $datetime_year = $this->input('old_year'); //デフォルト値は空の配列
+        $datetime_month = $this->input('old_month'); 
+        $datetime_day = $this->input('old_day'); 
+        $datetime_validation = $datetime_year . '-' . $datetime_month . '-' . $datetime_day;
+        // 日付を作成(ex. 2020-1-20)
+
+        // rules()に渡す値を追加でセット
+        //     これで、この場で作った変数にもバリデーションを設定できるようになる
+        $this->merge([
+            'datetime_validation' => $datetime_validation,
+        ]);
+
+        return parent::getValidatorInstance();
+    }
     public function rules()
     {
         return [
@@ -30,7 +48,7 @@ class RegisterFormRequest extends FormRequest
             'over_name_kana' => 'required|string|max:30|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',
             'under_name_kana' => 'required|string|max:30|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',
             'mail_address' => ['required','email','max:100',Rule::unique('users','mail_address')],
-            'birth_day'=>'before_or_equal:today',
+            'datetime_validation'=>'before_or_equal:today',
             'password' => 'required|string|min:8|max:30|confirmed',//confirmedは最初に書く
             'password_confirmation' => ''//名前_confirmation
             //
@@ -61,7 +79,7 @@ class RegisterFormRequest extends FormRequest
             'password.min'=>'パスワードは8文字以上で入力してください。',
             'password.max'=>'パスワードは30文字以内で入力してください。',
             'password.confirmed'=>'確認用パスワードと同じものを入力してください。',
-            'birth_day.before_or_equal'=>'今日より前の日程で指定してください。'
+            'datetime_validation.before_or_equal'=>'今日より前の日程で指定してください。'
 
         ];
     }

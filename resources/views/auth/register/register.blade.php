@@ -87,8 +87,8 @@
         </div>
         <div class="mt-3">
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
-          @if($errors->has('birth_day'))
-			            @foreach($errors->get('birth_day') as $message)
+          @if($errors->has('datetime_validation'))
+			            @foreach($errors->get('datetime_validation') as $message)
 				            {{ $message }}<br>
 			            @endforeach
 		            @endif 
@@ -105,19 +105,19 @@
             <option value="2008">2008</option>
             <option value="2009">2009</option>
             <option value="2010">2010</option>
-            <option value="2010">2011</option>
-            <option value="2010">2012</option>
-            <option value="2010">2013</option>
-            <option value="2010">2014</option>
-            <option value="2010">2015</option>
-            <option value="2010">2016</option>
-            <option value="2010">2017</option>
-            <option value="2010">2018</option>
-            <option value="2010">2019</option>
-            <option value="2010">2020</option>
-            <option value="2010">2021</option>
-            <option value="2010">2022</option>
-            <option value="2010">2023</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
           </select>
           <label style="font-size:13px">年</label>
           <select class="old_month" name="old_month">
