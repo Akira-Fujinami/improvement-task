@@ -4,15 +4,13 @@
 <div class="post_create_container d-flex">
   <div class="post_create_area border w-50 m-5 p-5">
     <div class="">
-    @foreach($main_categories as $main_category)
-      <p>{{$main_category->subCategories}}</p>
-      @endforeach
+    <form action="{{ route('post.create') }}" method="post" id="postCreate">{{ csrf_field() }}
       <p class="mb-0">カテゴリー</p>
       <select class="w-100" form="postCreate" name="post_category_id">
       @foreach($main_categories as $main_category)
         <optgroup label="{{ $main_category->main_category }}"></optgroup>
-        @foreach($main_categories as $main_category)
-      <option>{{$main_category->subCategories->sub_category}}</option>
+        @foreach($main_category->subCategories as $main_category->subCategory)
+      <option label="{{$main_category->subCategory->sub_category}}" value="{{$main_category->subCategory->id}}" name="sub_categories" form="postCreate"></option>
       @endforeach
         @endforeach
       </select>
@@ -33,9 +31,8 @@
     </div>
     <div class="mt-3 text-right">
       <input type="submit" class="btn btn-primary" value="投稿" form="postCreate">
-      <input type="hidden" value="id" name="id">
     </div>
-    <form action="{{ route('post.create') }}" method="post" id="postCreate">{{ csrf_field() }}</form>
+    </form>
   </div>
   @can('admin')
   <div class="w-25 ml-auto mr-auto">

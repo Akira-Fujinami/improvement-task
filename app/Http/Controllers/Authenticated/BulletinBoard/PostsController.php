@@ -20,15 +20,8 @@ class PostsController extends Controller
 {
     public function show(Request $request){
         $posts = Post::with('user', 'postComments','likes')->get();
-        $categories = MainCategory::get();
-        $sub_category_names=SubCategory::
-        select('sub_categories.sub_category','sub_categories.id','main_categories.main_category as main_categories_main_category')
-        ->join('main_categories','main_categories.id','=','sub_categories.main_category_id')
-        ->distinct('main_categories.main_category')
-        ->get();
+        $main_categories = MainCategory::get();
         $like = new Like;
-        $likes= Like::select('like_user_id','like_post_id')->selectRaw('COUNT(like_post_id) as count')->groupBy('like_post_id')->count();
-        $post_comment = new Post;
         if(!empty($request->keyword)){
             $posts = Post::with('user', 'postComments')
             ->where('post_title', 'like', '%'.$request->keyword.'%')
@@ -44,27 +37,30 @@ class PostsController extends Controller
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
         }
-        return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'post_comment','sub_category_names'));
+        return view('authenticated.bulletinboard.posts', compact('posts','like', 'main_categories'));
     }
 
     public function postDetail($post_id){
         $post = Post::with('user', 'postComments')->findOrFail($post_id);
-        return view('authenticated.bulletinboard.post_detail', compact('post'));
+        $comment=PostComment::groupBy('post_id')->get();
+        return view('authenticated.bulletinboard.post_detail', compact('post','comment'));
     }
 
     public function postInput(){
-        $main_categories = MainCategory::with('subCategories')->get();
-        // ddd($main_categories);
+        $main_categories = MainCategory::get();
         return view('authenticated.bulletinboard.post_create', compact('main_categories'));
     }
 
     public function postCreate(PostFormRequest $request){
-        $post = Post::with('post_sub_categories')->create([
-            'post_id'=>$request->id,
-            'sub_category_id'=>$request->sub_categories_id,
+        $post = Post::create([
             'user_id' => Auth::id(),
             'post_title' => $request->post_title,
             'post' => $request->post_body
+        ]);
+        $postID=$post->id;
+        $sub=PostSubCategory::create([
+            'post_id'=>$postID,
+            'sub_category_id'=>$request->post_category_id,
         ]);
         return redirect()->route('post.show');
     }
@@ -101,8 +97,7 @@ class PostsController extends Controller
             'user_id' => Auth::id(),
             'comment' => $request->comment
         ]);
-        $comment=PostComment::select('post_id')->get();
-        dd($comment);
+
         return redirect()->route('post.detail', ['id' => $request->post_id]);
     }
 

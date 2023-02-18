@@ -4,9 +4,9 @@ namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post_Sub_Category extends Model
+class PostSubCategory extends Model
 {
-
+    public $timestamps = false;
     protected $fillable = [
         'post_id',
         'sub_category_id',

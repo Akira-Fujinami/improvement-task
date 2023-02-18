@@ -37,7 +37,6 @@ class RegisterFormRequest extends FormRequest
         $this->merge([
             'datetime_validation' => $datetime_validation,
         ]);
-
         return parent::getValidatorInstance();
     }
     public function rules()
