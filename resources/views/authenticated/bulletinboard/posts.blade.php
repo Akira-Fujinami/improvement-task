@@ -27,6 +27,7 @@
   </div>
   <div class="other_area border w-25">
     <div class="border m-4">
+    <form action="{{ route('post.show') }}" method="get" id="postSearchRequest">
       <div class=""><a href="{{ route('post.input') }}">投稿</a></div>
       <div class="">
         <input type="text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
@@ -36,14 +37,17 @@
       <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
       <ul>
       @foreach($main_categories as $main_category)
-        <li clss="main_categories" category_id="{{$main_category->id}}"> <span>{{ $main_category->main_category }}</span></li>
-        @foreach($main_category->subCategories as $main_category->subCategory)
-      <li class="main_categories" value="{{$main_category->subCategory->id}}" name="sub_categories"> <span>{{$main_category->subCategory->sub_category}}</span> </li>
+        <li clss="main_categories"> <span>{{ $main_category->main_category }}</span></li>
+        @foreach($main_category->subCategories as $subCategory)
+        <li>
+        <input type="hidden" name="id_posts" value="{{$subCategory->id}}" form="postSearchRequest">
+        <input type="submit" name="sub_posts" value="{{$subCategory->sub_category}}" form="postSearchRequest">
+      </li>
       @endforeach
         @endforeach
       </ul>
     </div>
   </div>
-  <form action="{{ route('post.show') }}" method="get" id="postSearchRequest"></form>
+</form>
 </div>
 @endsection

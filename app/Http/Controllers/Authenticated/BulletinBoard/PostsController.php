@@ -21,20 +21,25 @@ class PostsController extends Controller
     public function show(Request $request){
         $posts = Post::with('user', 'postComments','likes')->get();
         $main_categories = MainCategory::get();
+        // $sub=$request->input('id_posts');
+        // dd($sub);
         $like = new Like;
         if(!empty($request->keyword)){
             $posts = Post::with('user', 'postComments')
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
-        }else if($request->category_word){
-            $sub_category = $request->category_word;
+        }else if($request->id_posts){
+            $sub_category = $request->input('id_posts');
+            dd($request);
+            $sub=PostSubCategory::select('post_id')->where('sub_category_id',$request->sub_posts)->get();
+            $posts=Post::with('user', 'postComments')->whereIn('id',$sub)->get();
             $posts = Post::with('user', 'postComments')->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
             ->whereIn('id', $likes)->get();
         }else if($request->my_posts){
-            $posts = Post::with('user', 'postComments')
+            $posts = Post::with('postComments')
             ->where('user_id', Auth::id())->get();
         }
         return view('authenticated.bulletinboard.posts', compact('posts','like', 'main_categories'));
