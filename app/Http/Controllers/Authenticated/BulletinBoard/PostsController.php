@@ -29,11 +29,12 @@ class PostsController extends Controller
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }else if($request->id_posts){
-            $sub_category = $request->input('id_posts');
-            dd($request);
-            $sub=PostSubCategory::select('post_id')->where('sub_category_id',$request->sub_posts)->get();
-            $posts=Post::with('user', 'postComments')->whereIn('id',$sub)->get();
-            $posts = Post::with('user', 'postComments')->get();
+            $sub_category = $request->id_posts;
+            // dd($sub_category);
+            // $sub=PostSubCategory::select('post_id')->where('sub_category_id',$request->sub_posts)->get();
+            $posts=Post::with('user', 'postComments')->whereHas('subCategories', function($q) use ($sub_category){
+                $q->where('id', $sub_category);
+              })->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')

@@ -28,15 +28,11 @@ class Post extends Model
     }
     public function subCategories(){
         // リレーションの定義
-        return $this->belongsToMany('App\SubCategory');
+        return $this->belongsToMany('App\Models\Categories\SubCategory','post_sub_categories','post_id','sub_category_id');
     }
     public function mainCategory(){
         // リレーションの定義
         return $this->hasMany('App\mainCategory');
-    }
-    public function postSubCategories()
-    {
-        return $this->belongsTo(postSubCategories::class, 'post_id','sub_category_id');
     }
     public function likeCounts($post_id){
         return $this->likes()->where('like_post_id', $post_id)->get()->count();
