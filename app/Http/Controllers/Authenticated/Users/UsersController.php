@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Gate;
 use App\Models\Users\User;
 use App\Models\Users\Subjects;
+use App\Models\Users\SubjectUsers;
 use App\Searchs\DisplayUsers;
 use App\Searchs\SearchResultFactories;
 
@@ -20,7 +21,7 @@ class UsersController extends Controller
         $updown = $request->updown;
         $gender = $request->sex;
         $role = $request->role;
-        $subjects = null;// ここで検索時の科目を受け取る
+        $subjects = $request->subject;// ここで検索時の科目を受け取る
         $userFactory = new SearchResultFactories();
         $users = $userFactory->initializeUsers($keyword, $category, $updown, $gender, $role, $subjects);
         $subjects = Subjects::all();
@@ -28,9 +29,32 @@ class UsersController extends Controller
     }
 
     public function userProfile($id){
-        $user = User::with('subjects')->findOrFail($id);
-        $subject_lists = Subjects::all();
-        return view('authenticated.users.profile', compact('user', 'subject_lists'));
+        $users = User::find($id);
+        // dd($users);
+        if($users->role == 4 ){
+        //  dd($user);
+        $user_id=$users->id;
+        // dd($user_id);
+        // $subjects=SubjectUsers::select('subject_id')->join('users',function($join) use($user_id)
+        // {
+        //     $join->where('subject_users.user_id','=',$user_id);
+        // })
+        // ->first();
+        // $subject_lists=Subjects::with(['subjectUsers'=>function($query){
+        //     $query->where('user_id',$user->id);
+        // }])->select('subject')
+        // ->get();
+        // dd($subject_lists);
+        $subjects=SubjectUsers::where('user_id',$user_id)->first();
+        $subject_lists = Subjects::select('subject')
+        ->where('id',$subjects->subject_id)
+        ->first();
+        // dd($subject_lists);
+        return view('authenticated.users.profile', compact('users', 'subject_lists'));
+        }
+        else{
+            return view('authenticated.users.profile', compact('users'));
+        }
     }
 
     public function userEdit(Request $request){

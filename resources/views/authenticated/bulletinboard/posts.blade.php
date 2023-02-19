@@ -40,7 +40,6 @@
         <li clss="main_categories"> <span>{{ $main_category->main_category }}</span></li>
         @foreach($main_category->subCategories as $subCategory)
         <li>
-        <input type="hidden" name="id_posts" value="{{$subCategory->id}}" form="postSearchRequest">
         <input type="submit" name="sub_posts" value="{{$subCategory->sub_category}}" form="postSearchRequest">
       </li>
       @endforeach

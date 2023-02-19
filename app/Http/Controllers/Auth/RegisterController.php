@@ -14,6 +14,7 @@ use Illuminate\Validation\Rule;
 use App\Http\Requests\RegisterFormRequest;
 
 use App\Models\Users\Subjects;
+use App\Models\Users\SubjectUsers;
 
 class RegisterController extends Controller
 {
@@ -77,14 +78,15 @@ class RegisterController extends Controller
     }
     public function registerPost(RegisterFormRequest $request)
     {
-        DB::beginTransaction();
-        try{
+        // DB::beginTransaction();
+        // try{
             $old_year = $request->old_year;
             $old_month = $request->old_month;
             $old_day = $request->old_day;
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
+            // dd($subjects);
             $user_get = User::create([
                 'over_name' => $request->over_name,
                 'under_name' => $request->under_name,
@@ -96,12 +98,23 @@ class RegisterController extends Controller
                 'role' => $request->role,
                 'password' => bcrypt($request->password)
             ]);
-            $user = User::findOrFail($user_get->id);
-            DB::commit();
+            $user = $user_get->id;
+            // dd($user);
+            // DB::commit();
+            // SubjectUsers::create([
+            //     'user_id' => $user,
+            //     'subject_id' => $subjects,
+            // ]);
+            // return redirect('/login');
+        // }catch(\Exception $e){
+        //     DB::rollback();
+        //     // return redirect()->route('loginView');
+        // }
+            $subject=SubjectUsers::create([
+                'user_id' => $user,
+                'subject_id' => $subjects,
+            ]);
+            // dd($subject);
             return redirect('/login');
-        }catch(\Exception $e){
-            DB::rollback();
-            return redirect()->route('loginView');
-        }
     }
 }

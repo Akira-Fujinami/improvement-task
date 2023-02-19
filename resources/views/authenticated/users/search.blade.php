@@ -87,7 +87,10 @@
             </select>
           </div>
           <div class="selected_engineer">
+            @foreach($subjects as $subject)
             <label>選択科目</label>
+            {{$subject->subject}}
+            @endforeach
           </div>
         </div>
       </div>
