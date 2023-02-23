@@ -7,11 +7,11 @@
     <form action="{{ route('post.create') }}" method="post" id="postCreate">{{ csrf_field() }}
       <p class="mb-0">カテゴリー</p>
       <select class="w-100" form="postCreate" name="post_category_id">
-      @foreach($main_categories as $main_category)
-        <optgroup label="{{ $main_category->main_category }}"></optgroup>
-        @foreach($main_category->subCategories as $main_category->subCategory)
-      <option label="{{$main_category->subCategory->sub_category}}" value="{{$main_category->subCategory->id}}" name="sub_categories" form="postCreate"></option>
-      @endforeach
+        @foreach($main_categories as $main_category)
+          <optgroup label="{{ $main_category->main_category }}"></optgroup>
+          @foreach($main_category->subCategories as $main_category->subCategory)
+            <option label="{{$main_category->subCategory->sub_category}}" value="{{$main_category->subCategory->id}}" name="sub_categories" form="postCreate"></option>
+          @endforeach
         @endforeach
       </select>
     </div>
@@ -39,11 +39,13 @@
     <div class="category_area mt-5 p-5">
       <div class="">
         <p class="m-0">メインカテゴリー</p>
-        @if($errors->has('main_category_name'))
-			            @foreach($errors->get('main_category_name') as $message)
-				            {{ $message }}<br>
-			            @endforeach
-		            @endif 
+        <div class="main_category">
+          @if($errors->has('main_category_name'))
+			      @foreach($errors->get('main_category_name') as $message)
+				      {{ $message }}<br>
+			      @endforeach
+		      @endif 
+        </div>
         <input type="text" class="w-100" name="main_category_name" form="mainCategoryRequest">
         <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="mainCategoryRequest">
       </div>
@@ -51,11 +53,13 @@
       <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryRequest">{{ csrf_field() }}</form>
       <div class="">
         <p class="m-0">サブカテゴリー</p>
-        @if($errors->has('sub_category_name'))
-			            @foreach($errors->get('sub_category_name') as $message)
-				            {{ $message }}<br>
-			            @endforeach
-		            @endif 
+        <div class="sub_category">
+          @if($errors->has('sub_category_name'))
+			      @foreach($errors->get('sub_category_name') as $message)
+				      {{ $message }}<br>
+			      @endforeach
+		      @endif 
+        </div>
         <select class="w-100" name="sub_main_category_name" form="subCategoryRequest">
         @foreach($main_categories as $main_category)
         <option label="{{ $main_category->main_category }}" value="{{$main_category->id}}" name="sub_main_categories" form="subCategoryRequest"></option>

@@ -22,6 +22,8 @@
               <label class="d-block m-0" style="font-size:13px">姓</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
+              </div>
+              <div class="error-overname">
                 @if($errors->has('over_name'))
 			            @foreach($errors->get('over_name') as $message)
 				            {{ $message }}<br>
@@ -33,6 +35,8 @@
               <label class=" d-block m-0" style="font-size:13px">名</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name" name="under_name">
+              </div>
+              <div class="error-undername">
                 @if($errors->has('under_name'))
 			            @foreach($errors->get('under_name') as $message)
 				            {{ $message }}<br>
@@ -46,6 +50,8 @@
               <label class="d-block m-0" style="font-size:13px">セイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name_kana" name="over_name_kana">
+              </div>
+              <div class="error-over_kana">
                 @if($errors->has('over_name_kana'))
 			            @foreach($errors->get('over_name_kana') as $message)
 				            {{ $message }}<br>
@@ -57,6 +63,8 @@
               <label class="d-block m-0" style="font-size:13px">メイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name_kana" name="under_name_kana">
+              </div>
+              <div class="error-under_kana">
                 @if($errors->has('under_name_kana'))
 			            @foreach($errors->get('under_name_kana') as $message)
 				            {{ $message }}<br>
@@ -69,6 +77,8 @@
             <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
+            </div>
+            <div class="error-mail">
               @if($errors->has('mail_address'))
 			            @foreach($errors->get('mail_address') as $message)
 				            {{ $message }}<br>
@@ -87,11 +97,6 @@
         </div>
         <div class="mt-3">
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
-          @if($errors->has('datetime_validation'))
-			            @foreach($errors->get('datetime_validation') as $message)
-				            {{ $message }}<br>
-			            @endforeach
-		            @endif 
           <select class="old_year" name="old_year">
             <option value="none">-----</option>
             <option value="2000">2000</option>
@@ -170,7 +175,14 @@
             <option value="30">30</option>
             <option value="31">31</option>
           </select>
-          <label style="font-size:13px">月</label>
+          <label style="font-size:13px">日</label>
+          <div class="error-birth">
+            @if($errors->has('datetime_validation'))
+			        @foreach($errors->get('datetime_validation') as $message)
+				        {{ $message }}<br>
+			        @endforeach
+		        @endif 
+          </div>
         </div>
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">役職</label>
@@ -196,11 +208,13 @@
           <label class="d-block m-0" style="font-size:13px">パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password" name="password">
+          </div>
+          <div class="error-password">
             @if($errors->has('password'))
-			            @foreach($errors->get('password') as $message)
-				            {{ $message }}<br>
-			            @endforeach
-		            @endif 
+			        @foreach($errors->get('password') as $message)
+				        {{ $message }}<br>
+			        @endforeach
+		        @endif 
           </div>
         </div>
         <div class="mt-3">

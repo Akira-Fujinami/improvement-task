@@ -12,7 +12,17 @@ ul,
 li{
   list-style:none;
 }
-
+.error-overname,.error-undername,.error-over_kana,.error-under_kana,.error-mail,.error-birth,.error-password{
+  position: relative;
+  top:10px;
+  color:red;
+  font-size:10%;
+}
+.main_category,.sub_category,.comment{
+  font-size:10%;
+  color:red;
+  white-space: nowrap;
+}
 /* サイドバー */
 .sidebar{
   width:150px;
