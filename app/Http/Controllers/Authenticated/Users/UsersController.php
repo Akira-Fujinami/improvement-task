@@ -24,8 +24,18 @@ class UsersController extends Controller
         $subjects = $request->subject;// ここで検索時の科目を受け取る
         $userFactory = new SearchResultFactories();
         $users = $userFactory->initializeUsers($keyword, $category, $updown, $gender, $role, $subjects);
+        // $usersubject=subjects::
+        $usersubject=SubjectUsers::
+        join('users','users.id','=','subject_users.user_id')
+        ->get();
+        // $subject_id=$user_subject->subject_id;
+        // // dd($subject_id);
+        // $subjectuser=Subjects::
+        // where('id',$subject_id)
+        // ->get();
+        // // dd($subject_user);
         $subjects = Subjects::all();
-        return view('authenticated.users.search', compact('users', 'subjects'));
+        return view('authenticated.users.search', compact('users', 'subjects','usersubject'));
     }
 
     public function userProfile($id){
@@ -46,9 +56,10 @@ class UsersController extends Controller
         // ->get();
         // dd($subject_lists);
         $subjects=SubjectUsers::where('user_id',$user_id)->first();
+        // dd($subjects);
         $subject_lists = Subjects::select('subject')
         ->where('id',$subjects->subject_id)
-        ->first();
+        ->get();
         // dd($subject_lists);
         return view('authenticated.users.profile', compact('users', 'subject_lists'));
         }

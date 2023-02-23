@@ -5,7 +5,7 @@
   <div class="top_area w-75 m-auto pt-5">
   @foreach($users as $user)
   {{isset($user->sex)}}
-    <span>{{ $user->over_name }}</span><span>{{ isset($user->under_name) }}さんのプロフィール</span>
+    <span>{{ isset($user->over_name) }}</span><span>{{ isset($user->under_name) }}さんのプロフィール</span>
     <div class="user_status p-3">
       <p>名前 : <span>{{ isset($user->over_name) }}</span><span class="ml-1">{{ isset($user->under_name) }}</span></p>
       <p>カナ : <span>{{ isset($user->over_name_kana) }}</span><span class="ml-1">{{ isset($user->under_name_kana) }}</span></p>

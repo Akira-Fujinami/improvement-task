@@ -12,6 +12,13 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\RegisterFormRequest;
+use attach;
+
+
+
+
+
+
 
 use App\Models\Users\Subjects;
 use App\Models\Users\SubjectUsers;
@@ -59,23 +66,6 @@ class RegisterController extends Controller
         $subjects = Subjects::all();
         return view('auth.register.register', compact('subjects'));
     }
-    public function store(Request $request){
-            $validated=$request->validate([//バリデーションを行う
-            'over_name' => 'required|string|max:10',
-            'under_name' => 'required|string|max:10',
-            'over_name_kana' => 'required|string|max:30',
-            'under_name_kana' => 'required|string|max:30',
-            'mail_address' => ['required','email','string','max:100',Rule::unique('users','mail_address')],
-            'sex' => 'required',
-            'year' => 'nullable|present|numeric|required_with:month,day',
-            'month' => 'nullable|present|numeric|required_with:year,day',
-            'day' => 'nullable|present|numeric|required_with:year,month',
-            'full_date' => 'nullable|date|before_or_equal:' . today()->format('Y-m-d'),
-            'role' => 'required',
-            'password' => 'required|string|min:8|max:30|confirmed',//confirmedは最初に書く
-            'password_confirmation' => 'required|string|min:8|max:30']);//名前_confirmation
-            return redirect('/login');
-    }
     public function registerPost(RegisterFormRequest $request)
     {
         // DB::beginTransaction();
@@ -112,7 +102,8 @@ class RegisterController extends Controller
         // }
             $subject=SubjectUsers::create([
                 'user_id' => $user,
-                'subject_id' => $subjects,
+                'subject_id' => $subjects
+                
             ]);
             // dd($subject);
             return redirect('/login');

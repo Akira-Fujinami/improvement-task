@@ -44,7 +44,8 @@
       <div>
         @if($user->role == 4)
         <span>選択科目 :</span>
-        @endif
+        
+         @endif
       </div>
     </div>
     @endforeach
@@ -87,10 +88,12 @@
             </select>
           </div>
           <div class="selected_engineer">
+          <label>選択科目</label>
+          <select name="subject" form="userSearchRequest">
             @foreach($subjects as $subject)
-            <label>選択科目</label>
-            {{$subject->subject}}
+            <option value="{{$subject->id}}">{{$subject->subject}}</option>
             @endforeach
+          </select>
           </div>
         </div>
       </div>

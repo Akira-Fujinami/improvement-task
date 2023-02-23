@@ -14,6 +14,7 @@ use App\Models\Posts\PostSubCategory;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\BulletinBoard\MainFormRequest;
 use App\Http\Requests\BulletinBoard\SubFormRequest;
+use App\Http\Requests\BulletinBoard\CommentFormRequest;
 use Auth;
 
 class PostsController extends Controller
@@ -95,7 +96,7 @@ class PostsController extends Controller
             'sub_category'=>$sub_category_name]);
             return back();
     }
-    public function commentCreate(Request $request){
+    public function commentCreate(CommentFormRequest $request){
         PostComment::create([
             'post_id' => $request->post_id,
             'user_id' => Auth::id(),

@@ -15,7 +15,4 @@ class SubjectUsers extends Model
         'user_id',
         'subject_id'
     ];
-    public function subjects(){
-        return $this->hasMany(Subject::class, 'subject');// リレーションの定義
-    }
 }
