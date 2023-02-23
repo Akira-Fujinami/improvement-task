@@ -24,48 +24,17 @@ class UsersController extends Controller
         $subjects = $request->subject;// ここで検索時の科目を受け取る
         $userFactory = new SearchResultFactories();
         $users = $userFactory->initializeUsers($keyword, $category, $updown, $gender, $role, $subjects);
-        // $usersubject=subjects::
-        $usersubject=SubjectUsers::
-        join('users','users.id','=','subject_users.user_id')
-        ->get();
-        // $subject_id=$user_subject->subject_id;
-        // // dd($subject_id);
-        // $subjectuser=Subjects::
-        // where('id',$subject_id)
-        // ->get();
-        // // dd($subject_user);
         $subjects = Subjects::all();
-        return view('authenticated.users.search', compact('users', 'subjects','usersubject'));
+        return view('authenticated.users.search', compact('users', 'subjects'));
     }
 
     public function userProfile($id){
-        $users = User::find($id);
-        // dd($users);
-        if($users->role == 4 ){
+        $user = User::with('subjects')->findorFail($id);
+        // dd($user);
         //  dd($user);
-        $user_id=$users->id;
-        // dd($user_id);
-        // $subjects=SubjectUsers::select('subject_id')->join('users',function($join) use($user_id)
-        // {
-        //     $join->where('subject_users.user_id','=',$user_id);
-        // })
-        // ->first();
-        // $subject_lists=Subjects::with(['subjectUsers'=>function($query){
-        //     $query->where('user_id',$user->id);
-        // }])->select('subject')
-        // ->get();
-        // dd($subject_lists);
-        $subjects=SubjectUsers::where('user_id',$user_id)->first();
-        // dd($subjects);
-        $subject_lists = Subjects::select('subject')
-        ->where('id',$subjects->subject_id)
-        ->get();
-        // dd($subject_lists);
-        return view('authenticated.users.profile', compact('users', 'subject_lists'));
-        }
-        else{
-            return view('authenticated.users.profile', compact('users'));
-        }
+        $subject=Subjects::get();
+        return view('authenticated.users.profile', compact('user','subject'));
+        
     }
 
     public function userEdit(Request $request){
