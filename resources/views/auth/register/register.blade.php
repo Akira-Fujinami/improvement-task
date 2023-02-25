@@ -94,11 +94,28 @@
           <label style="font-size:13px">女性</label>
           <input type="radio" name="sex" class="sex" value="3">
           <label style="font-size:13px">その他</label>
+          <div class="error-sex">
+            @if($errors->has('sex'))
+			        @foreach($errors->get('sex') as $message)
+				        {{ $message }}<br>
+			        @endforeach
+		        @endif
+          </div>
         </div>
         <div class="mt-3">
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
             <option value="none">-----</option>
+            <option value="1990">1990</option>
+            <option value="1991">1991</option>
+            <option value="1992">1992</option>
+            <option value="1993">1993</option>
+            <option value="1994">1994</option>
+            <option value="1995">1995</option>
+            <option value="1996">1996</option>
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
             <option value="2000">2000</option>
             <option value="2001">2001</option>
             <option value="2002">2002</option>
@@ -194,6 +211,13 @@
           <label style="font-size:13px">教師(英語)</label>
           <input type="radio" name="role" class="other_role role" value="4">
           <label style="font-size:13px" class="other_role">生徒</label>
+          <div class="error-role">
+            @if($errors->has('role'))
+			        @foreach($errors->get('role') as $message)
+				        {{ $message }}<br>
+			        @endforeach
+		        @endif
+          </div>
         </div>
         <div class="select_teacher d-none">
           <label class="d-block m-0" style="font-size:13px">選択科目</label>

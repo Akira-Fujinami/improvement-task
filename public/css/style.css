@@ -12,7 +12,7 @@ ul,
 li{
   list-style:none;
 }
-.error-overname,.error-undername,.error-over_kana,.error-under_kana,.error-mail,.error-birth,.error-password{
+.error-overname,.error-undername,.error-over_kana,.error-under_kana,.error-mail,.error-birth,.error-password,.error-sex,.error-role{
   position: relative;
   top:10px;
   color:red;
