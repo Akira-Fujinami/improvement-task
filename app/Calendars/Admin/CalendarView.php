@@ -59,12 +59,12 @@ class CalendarView{
 
   protected function getWeeks(){
     $weeks = [];
-    $firstDay = $this->carbon->copy()->firstOfMonth();
+    $firstDay = $this->carbon->copy()->firstOfMonth();//開始日～終了日
     $lastDay = $this->carbon->copy()->lastOfMonth();
     $week = new CalendarWeek($firstDay->copy());
     $weeks[] = $week;
     $tmpDay = $firstDay->copy()->addDay(7)->startOfWeek();
-    while($tmpDay->lte($lastDay)){
+    while($tmpDay->lte($lastDay)){//月曜日から日曜日までループ
       $week = new CalendarWeek($tmpDay, count($weeks));
       $weeks[] = $week;
       $tmpDay->addDay(7);
