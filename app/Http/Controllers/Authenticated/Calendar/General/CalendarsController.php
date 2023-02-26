@@ -24,7 +24,7 @@ class CalendarsController extends Controller
             $getDate = $request->getData;
             // dd($getDate);
             $reserveDays = array_filter(array_combine($getDate, $getPart));
-            dd($reserveDays);
+            // dd($reserveDays);
             foreach($reserveDays as $key => $value){
                 // dd($key);
                 $reserve=Calendars::create([
