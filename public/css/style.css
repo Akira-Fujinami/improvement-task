@@ -47,12 +47,15 @@ li{
 .day-blank{
   background:#D3D3D3;
 }
-.day-sat{
+.days-sat .day{
   color:#0000FF;
 }
-.day-sun{
-  color:#FF0000;
+.days-sun .day{
+  color:red;
 }
+/* .day{
+  color:red;
+} */
 .past-day{
   background:#EEE;
 }

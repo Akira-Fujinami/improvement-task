@@ -2,6 +2,7 @@
 namespace App\Calendars\General;
 
 use App\Models\Calendars\ReserveSettings;
+use App\Models\Calendars\Calendars;
 use Carbon\Carbon;
 use Auth;
 
@@ -13,7 +14,7 @@ class CalendarWeekDay{
   }
 
   function getClassName(){
-    return "day-" . strtolower($this->carbon->format("D"));
+    return "days-" . strtolower($this->carbon->format("D"));
   }
 
   function pastClassName(){
@@ -31,6 +32,7 @@ class CalendarWeekDay{
    function selectPart($ymd){
      $one_part_frame = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->first();
      $two_part_frame = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '2')->first();
+    //  dd($one_part_frame);
      $three_part_frame = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
      if($one_part_frame){
        $one_part_frame = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->first()->limit_users;
@@ -52,17 +54,17 @@ class CalendarWeekDay{
      $html[] = '<select name="getPart[]" class="border-primary" style="width:70px; border-radius:5px;" form="reserveParts">';
      $html[] = '<option value="" selected></option>';
      if($one_part_frame == "0"){
-       $html[] = '<option value="1" disabled>リモ1部(残り0枠)</option>';
+       $html[] = '<option value="1">リモ1部(残り20枠)</option>';
      }else{
        $html[] = '<option value="1">リモ1部(残り'.$one_part_frame.'枠)</option>';
      }
      if($two_part_frame == "0"){
-       $html[] = '<option value="2" disabled>リモ2部(残り0枠)</option>';
+       $html[] = '<option value="2">リモ2部(残り20枠)</option>';
      }else{
        $html[] = '<option value="2">リモ2部(残り'.$two_part_frame.'枠)</option>';
      }
      if($three_part_frame == "0"){
-       $html[] = '<option value="3" disabled>リモ3部(残り0枠)</option>';
+       $html[] = '<option value="3">リモ3部(残り20枠)</option>';
      }else{
        $html[] = '<option value="3">リモ3部(残り'.$three_part_frame.'枠)</option>';
      }

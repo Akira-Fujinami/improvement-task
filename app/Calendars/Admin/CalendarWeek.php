@@ -18,11 +18,11 @@ class CalendarWeek{
 
   function getDays(){
     $days = [];
-    $startDay = $this->carbon->copy()->startOfWeek();
+    $startDay = $this->carbon->copy()->startOfWeek();//開始日から終了日
     $lastDay = $this->carbon->copy()->endOfWeek();
     $tmpDay = $startDay->copy();
 
-    while($tmpDay->lte($lastDay)){
+    while($tmpDay->lte($lastDay)){//月曜日から日曜日までループ
       if($tmpDay->month != $this->carbon->month){
         $day = new CalendarWeekBlankDay($tmpDay->copy());
         $days[] = $day;

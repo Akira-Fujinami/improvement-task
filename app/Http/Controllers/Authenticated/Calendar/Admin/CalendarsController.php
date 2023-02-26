@@ -19,10 +19,10 @@ class CalendarsController extends Controller
         return view('authenticated.calendar.admin.calendar', compact('calendar'));
     }
 
-    public function reserveDetail($user_id = 0, $date, $part){
-        $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
-        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
-    }
+    // public function reserveDetail($user_id = 0, $date, $part){
+    //     $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
+    //     return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
+    // }
 
     public function reserveSettings(){
         $calendar = new CalendarSettingView(time());
@@ -33,7 +33,7 @@ class CalendarsController extends Controller
         $reserveDays = $request->input('reserve_day');
         foreach($reserveDays as $day => $parts){
             foreach($parts as $part => $frame){
-                ReserveSettings::updateOrCreate([
+                $reservesetting=ReserveSettings::updateOrCreate([
                     'setting_reserve' => $day,
                     'setting_part' => $part,
                 ],[
@@ -41,6 +41,7 @@ class CalendarsController extends Controller
                     'setting_part' => $part,
                     'limit_users' => $frame,
                 ]);
+                $reservesetting->users()->attach(Auth::id());
             }
         }
         return redirect()->route('calendar.admin.setting', ['user_id' => Auth::id()]);
