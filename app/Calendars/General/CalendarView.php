@@ -2,6 +2,7 @@
 namespace App\Calendars\General;
 
 use Carbon\Carbon;
+use App\Models\Calendars\Calendars;
 use Auth;
 
 class CalendarView{
@@ -53,6 +54,7 @@ class CalendarView{
         if(in_array($day->everyDay(), $day->authReserveDay())){
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
           // dd($reservePart);
+          // $reserveParts=Calendars::select('reserve_part')->first();
           if($reservePart == 1){
             $reservePart = "リモ1部";
           }else if($reservePart == 2){

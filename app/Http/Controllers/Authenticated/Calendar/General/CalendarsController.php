@@ -33,6 +33,8 @@ class CalendarsController extends Controller
                 ]);
                 // $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
                 // $reserve_settings->decrement('limit_users');
+                $reservePart=$reserve->reserve_date;
+                // dd($reserve_part);
                 $reserve_user=$reserve->users()->attach(Auth::id());
             }
         
