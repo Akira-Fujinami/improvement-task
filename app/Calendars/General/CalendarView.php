@@ -52,7 +52,7 @@ class CalendarView{
         $html[] = $day->render();
 
         if(in_array($day->everyDay(), $day->authReserveDay())){
-          // $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
+          $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
           $user_id=Auth::id();
           $reservePart=Calendars::
           join('calendar_users',function($join)use($user_id){
