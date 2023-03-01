@@ -52,7 +52,13 @@ class CalendarView{
         $html[] = $day->render();
 
         if(in_array($day->everyDay(), $day->authReserveDay())){
-          $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
+          // $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
+          $user_id=Auth::id();
+          $reservePart=Calendars::
+          join('calendar_users',function($join)use($user_id){
+              $join->where('calendar_users.user_id','=',$user_id);
+          })->orderby('updated_at','DESC')->first()->reserve_part;
+          // dd($reserve_users);
           // dd($reservePart);
           // $reserveParts=Calendars::select('reserve_part')->first();
           if($reservePart == 1){
@@ -68,7 +74,7 @@ class CalendarView{
           }else{
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
-          }
+          };
         }else{
           $html[] = $day->selectPart($day->everyDay());
         }
