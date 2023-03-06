@@ -19,7 +19,7 @@ class CalendarsController extends Controller
     }
 
     public function reserve(Request $request){
-        
+        // dd($request);
             $getPart = $request->getPart;
             $getDate = $request->getData;
             // dd($getDate);
@@ -27,12 +27,10 @@ class CalendarsController extends Controller
             // dd($reserveDays);
             foreach($reserveDays as $key => $value){
                 // dd($key);
-                $reserve=Calendars::create([
-                    'reserve_date'=>$key,
-                    'reserve_part'=>$value
-                ]);
+                $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
+                $reserve_settings->decrement('limit_users');
+                $reserve_settings->users()->attach(Auth::id());
                 // $reservePart=$reserve->id;
-                $reserve->users()->attach(Auth::id());
                 // dd($reservepart);
             }
         

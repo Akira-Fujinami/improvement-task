@@ -41,11 +41,20 @@ class CalendarView{
         $toDay = $this->carbon->yesterday()->copy()->format("Y-m-d");
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<td class="past-day border">';
+          $html[] = '<p class="d-flex m-0 p-0">1部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_one($day->everyDay()).'</a></p>';
+          $html[] = '<p class="d-flex m-0 p-0">2部 '.$day->dayPartCounts_two($day->everyDay()).'</p>';
+          $html[] = '<p class="d-flex m-0 p-0">3部 '.$day->dayPartCounts_three($day->everyDay()).'</p>';
         }else{
           $html[] = '<td class="border '.$day->getClassName().'">';
+          $html[] = '<p class="d-flex m-0 p-0">1部 '.$day->dayPartCounts_one($day->everyDay()).'</p>';
+          $html[] = '<p class="d-flex m-0 p-0">2部 '.$day->dayPartCounts_two($day->everyDay()).'</p>';
+          $html[] = '<p class="d-flex m-0 p-0">3部 '.$day->dayPartCounts_three($day->everyDay()).'</p>';
+
         }
         $html[] = $day->render();
-        $html[] = $day->dayPartCounts($day->everyDay());
+        $html[] = $day->dayPartCounts_one($day->everyDay());
+        $html[] = $day->dayPartCounts_two($day->everyDay());
+        $html[] = $day->dayPartCounts_three($day->everyDay());
         $html[] = '</td>';
       }
       $html[] = '</tr>';

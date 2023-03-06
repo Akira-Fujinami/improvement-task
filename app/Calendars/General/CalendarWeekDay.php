@@ -35,7 +35,7 @@ class CalendarWeekDay{
     //  dd($one_part_frame);
      $three_part_frame = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
      if($one_part_frame){
-       $one_part_frame = ReserveSettings::with('users')->where('reserve_date', $ymd)->where('reserve_part', '1')->first()->limit_users;
+       $one_part_frame = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->first()->limit_users;
      }else{
        $one_part_frame = '0';
      }

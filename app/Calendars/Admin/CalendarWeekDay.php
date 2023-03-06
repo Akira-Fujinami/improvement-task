@@ -23,7 +23,7 @@ class CalendarWeekDay{
     return $this->carbon->format("Y-m-d");
   }
 
-  function dayPartCounts($day){
+  function dayPartCounts_one($day){
     $html = [];
     $one_part = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '1')->first();
     $two_part = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '2')->first();
@@ -38,8 +38,11 @@ class CalendarWeekDay{
       $one_part = "20";
     }
     return $one_part;
+  }
 
-
+    function dayPartCounts_two($day){
+    $two_part = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '2')->first();
+    $html[] = '<div class="text-left">';  
     if($two_part){
       $two_part = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '2')->first()->limit_users;
       $html[] = '<p class="day_part m-0 pt-1">2部</p>';
@@ -48,6 +51,10 @@ class CalendarWeekDay{
       $two_part="20";
     }
     return $two_part;
+  }
+  function dayPartCounts_three($day){  
+    $three_part = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '3')->first();
+    $html[] = '<div class="text-left">';  
     if($three_part){
       $three_part = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '3')->first()->limit_users;
       $html[] = '<p class="day_part m-0 pt-1">3部</p>';
@@ -56,10 +63,9 @@ class CalendarWeekDay{
       $three_part="20";
     }
     return $three_part;
-    $html[] = '</div>';
-
-    return implode("", $html);
   }
+
+  
 
 
   function onePartFrame($day){
