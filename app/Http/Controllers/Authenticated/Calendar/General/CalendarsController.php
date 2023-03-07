@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Calendars\General\CalendarView;
 use App\Models\Calendars\ReserveSettings;
+use App\Models\Calendars\ReserveSettingUsers;
 use App\Models\Calendars\Calendars;
 use App\Models\USers\User;
 use Auth;
@@ -35,5 +36,11 @@ class CalendarsController extends Controller
             }
         
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
+    }
+
+    public function delete(Request $request){
+        $delete_id=$request->delete_date;
+        ReserveSettingUsers::where('reserve_setting_id',$delete_id)->delete();
+        return back();
     }
 }

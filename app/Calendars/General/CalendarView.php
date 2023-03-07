@@ -53,22 +53,25 @@ class CalendarView{
 
         if(in_array($day->everyDay(), $day->authReserveDay())){
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
+          $id=$day->authReserveDate($day->everyDay())->first()->id;
           if($reservePart == 1){
             $reservePart_name = "リモ1部";
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            // $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else if($reservePart == 2){
             $reservePart_name = "リモ2部";
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            // $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else if($reservePart == 3){
             $reservePart_name = "リモ3部";
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            // $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart_name.'</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart_name .'</button>';
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="deleteParts">';
+            // $html[]='<input type="submit" class="btn btn-danger p-0 w-75" style="font-size:12px" value=""'.$reservePart_name.'</input>';
+            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" style="font-size:12px" >'. $reservePart_name .'</button>';
+            $html[]='<button type="submit" name="delete_date" form="deleteParts" value="'. $id .'">キャンセル</button>';
+            $html[] = '<input type="hidden" name="getPart[]" value=""'.$id.' form="reserveParts">';
           };
           
         }elseif($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){

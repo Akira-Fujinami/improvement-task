@@ -41,7 +41,7 @@ class CalendarsController extends Controller
                     'setting_part' => $part,
                     'limit_users' => $frame,
                 ]);
-                $reservesetting->users()->attach(Auth::id());
+                // $reservesetting->users()->attach(Auth::id());
             }
         }
         return redirect()->route('calendar.admin.setting', ['user_id' => Auth::id()]);

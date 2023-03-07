@@ -21,6 +21,7 @@ class PostsController extends Controller
 {
     public function show(Request $request){
         $posts = Post::with('user', 'postComments','likes')->get();
+        // dd($posts);
         $main_categories = MainCategory::get();
         // $sub=$request->input('id_posts');
         $like = new Like;

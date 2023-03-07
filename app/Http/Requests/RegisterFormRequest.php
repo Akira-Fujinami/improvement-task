@@ -49,7 +49,7 @@ class RegisterFormRequest extends FormRequest
             'mail_address' => ['required','email','max:100',Rule::unique('users','mail_address')],
             'sex'=>'required|in:1,2,3',
             'role'=>'required|in:1,2,3,4',
-            'datetime_validation'=>'before_or_equal:today|after:1999-03-31',
+            'datetime_validation'=>'before_or_equal:today|after:1999-12-31',
             'password' => 'required|string|min:8|max:30|confirmed',//confirmedは最初に書く
             'password_confirmation' => ''//名前_confirmation
             //
