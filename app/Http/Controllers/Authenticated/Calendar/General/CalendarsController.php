@@ -41,6 +41,9 @@ class CalendarsController extends Controller
     public function delete(Request $request){
         $delete_id=$request->delete_date;
         ReserveSettingUsers::where('reserve_setting_id',$delete_id)->delete();
+        $delete_reserve=ReserveSettings::where('id',$delete_id)->first();
+        $delete_reserve->increment('limit_users');
+        
         return back();
     }
 }
