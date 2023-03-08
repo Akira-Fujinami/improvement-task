@@ -53,6 +53,8 @@ class CalendarView{
 
         if(in_array($day->everyDay(), $day->authReserveDay())){
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
+          $reserveDate = $day->authReserveDate($day->everyDay())->first()->setting_reserve;
+          $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
           $id=$day->authReserveDate($day->everyDay())->first()->id;
           if($reservePart == 1){
             $reservePart_name = "リモ1部";
@@ -70,7 +72,7 @@ class CalendarView{
           }else{
             // $html[]='<input type="submit" class="btn btn-danger p-0 w-75" style="font-size:12px" value=""'.$reservePart_name.'</input>';
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" style="font-size:12px" >'. $reservePart_name .'</button>';
-            $html[]='<button type="submit" name="delete_date" form="deleteParts" value="'. $id .'">キャンセル</button>';
+            $html[]='<button type="submit" name="delete_date" class="reserve-modal-open" form="deleteParts" value="'. $id .'" reserve_date='.$reserveDate.' reserve_part='.$reservePart.' reserve_id='.$id.'>キャンセル</button>';
             $html[] = '<input type="hidden" name="getPart[]" value=""'.$id.' form="reserveParts">';
           };
           
@@ -80,18 +82,19 @@ class CalendarView{
         }else{
           $html[] = $day->selectPart($day->everyDay());
         }
-
         $html[] = $day->getDate();
         $html[] = '</td>';
       }
+      $html[]='<div class="modal js-modals">';
       $html[] = '</tr>';
     }
     $html[] = '</tbody>';
     $html[] = '</table>';
+    $html[]='</div>';
     $html[] = '</div>';
     $html[] = '<form action="/reserve/calendar" method="post" id="reserveParts">'.csrf_field().'</form>';
     $html[] = '<form action="/delete/calendar" method="post" id="deleteParts">'.csrf_field().'</form>';
-
+    $html[]='<script src="{{ asset("js/calendar.js") }}" rel="stylesheet"></script>';
     return implode('', $html);
   }
 

@@ -38,23 +38,25 @@ class CalendarView{
       $days = $week->getDays();
       foreach($days as $day){
         $startDay = $this->carbon->format("Y-m-01");
-        $toDay = $this->carbon->yesterday()->copy()->format("Y-m-d");
+        $toDay = $this->carbon->format("Y-m-d");
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<td class="past-day border">';
-          $html[] = '<p class="d-flex m-0 p-0">1部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_one($day->everyDay()).'</a></p>';
-          $html[] = '<p class="d-flex m-0 p-0">2部 '.$day->dayPartCounts_two($day->everyDay()).'</p>';
-          $html[] = '<p class="d-flex m-0 p-0">3部 '.$day->dayPartCounts_three($day->everyDay()).'</p>';
         }else{
           $html[] = '<td class="border '.$day->getClassName().'">';
-          $html[] = '<p class="d-flex m-0 p-0">1部 '.$day->dayPartCounts_one($day->everyDay()).'</p>';
-          $html[] = '<p class="d-flex m-0 p-0">2部 '.$day->dayPartCounts_two($day->everyDay()).'</p>';
-          $html[] = '<p class="d-flex m-0 p-0">3部 '.$day->dayPartCounts_three($day->everyDay()).'</p>';
-
         }
         $html[] = $day->render();
-        $html[] = $day->dayPartCounts_one($day->everyDay());
-        $html[] = $day->dayPartCounts_two($day->everyDay());
-        $html[] = $day->dayPartCounts_three($day->everyDay());
+        if($day->everyDay()){
+        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
+          $html[] = '<p class="d-flex m-0 p-0">1部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_one($day->everyDay()).'</a></p>';
+          $html[] = '<p class="d-flex m-0 p-0">2部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_two($day->everyDay()).'</a></p>';
+          $html[] = '<p class="d-flex m-0 p-0">3部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_three($day->everyDay()).'</a></p>';
+        }else{
+          $html[] = '<p class="d-flex m-0 p-0">1部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_one($day->everyDay()).'</a></p>';
+          $html[] = '<p class="d-flex m-0 p-0">2部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_two($day->everyDay()).'</a></p>';
+          $html[] = '<p class="d-flex m-0 p-0">3部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_three($day->everyDay()).'</a></p>';
+
+        }
+      }
         $html[] = '</td>';
       }
       $html[] = '</tr>';
