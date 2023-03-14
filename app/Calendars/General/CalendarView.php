@@ -87,8 +87,8 @@ class CalendarView{
     $html[]='<div class="modal js-modals">';
     $html[]='<div class="modal__bg js-modal-close"></div>';
     $html[]='<div class="modal__content">';
-    $html[]='<input disable type="text" class="modal_reserve" name="reserve_date">';
-    $html[]='<input disable type="text" class="modal_part" name="reserve_part">';
+    $html[]='<input disabled type="text" class="modal_reserve" name="reserve_date">';
+    $html[]='<input disabled type="text" class="modal_part" name="reserve_part">';
     $html[]='<input type="hidden" class="modal_id" name="reserve_id">';
     $html[]='<p>上記の予約をキャンセルしてもよろしいでしょうか</p>';
     $html[]='<button type="submit" name="delete_date" form="deleteParts" value="'. $id .'" >キャンセル</button>';
