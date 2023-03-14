@@ -58,13 +58,10 @@ class CalendarView{
           $id=$day->authReserveDate($day->everyDay())->first()->id;
           if($reservePart == 1){
             $reservePart_name = "リモ1部";
-            // $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else if($reservePart == 2){
             $reservePart_name = "リモ2部";
-            // $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else if($reservePart == 3){
             $reservePart_name = "リモ3部";
-            // $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart_name.'</p>';
@@ -85,13 +82,22 @@ class CalendarView{
         $html[] = $day->getDate();
         $html[] = '</td>';
       }
-      $html[]='<div class="modal js-modals">';
       $html[] = '</tr>';
     }
+    $html[]='<div class="modal js-modals">';
+    $html[]='<div class="modal__bg js-modal-close"></div>';
+    $html[]='<div class="modal__content">';
+    $html[]='<input disable type="text" class="modal_reserve" name="reserve_date">';
+    $html[]='<input disable type="text" class="modal_part" name="reserve_part">';
+    $html[]='<input type="hidden" class="modal_id" name="reserve_id">';
+    $html[]='<p>上記の予約をキャンセルしてもよろしいでしょうか</p>';
+    $html[]='<button type="submit" name="delete_date" form="deleteParts" value="'. $id .'" >キャンセル</button>';
+    $html[]='<a class="js-modal-close" href="">閉じる</a>';
     $html[] = '</tbody>';
     $html[] = '</table>';
     $html[]='</div>';
     $html[] = '</div>';
+    $html[]='</div>';
     $html[] = '<form action="/reserve/calendar" method="post" id="reserveParts">'.csrf_field().'</form>';
     $html[] = '<form action="/delete/calendar" method="post" id="deleteParts">'.csrf_field().'</form>';
     $html[]='<script src="{{ asset("js/calendar.js") }}" rel="stylesheet"></script>';
