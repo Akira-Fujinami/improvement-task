@@ -20,6 +20,7 @@ class CalendarsController extends Controller
     }
 
     public function reserveDetail($user_id, $date, $part){
+        dd($user_id);
         $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
         return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
     }
@@ -41,7 +42,6 @@ class CalendarsController extends Controller
                     'setting_part' => $part,
                     'limit_users' => $frame,
                 ]);
-                // $reservesetting->users()->attach(Auth::id());
             }
         }
         return redirect()->route('calendar.admin.setting', ['user_id' => Auth::id()]);
