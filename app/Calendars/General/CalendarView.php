@@ -68,8 +68,8 @@ class CalendarView{
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
             // $html[]='<input type="submit" class="btn btn-danger p-0 w-75" style="font-size:12px" value=""'.$reservePart_name.'</input>';
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" style="font-size:12px" >'. $reservePart_name .'</button>';
-            $html[]='<button type="submit" class="reserve-modal-open pt-modal-cancel" form="deleteParts" value="'. $id .'" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.'>キャンセル</button>';
+            $html[] = '<button type="submit" class="reserve-modal-open btn btn-danger p-0 w-75" style="font-size:12px" form="deleteParts" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.'>'. $reservePart_name .'</button>';
+            // $html[]='<button type="submit" class="reserve-modal-open pt-modal-cancel" form="deleteParts" value="'. $id .'" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.'>キャンセル</button>';
             $html[] = '<input type="hidden" name="getPart[]" value=""'.$id.' form="reserveParts">';
           };
           
