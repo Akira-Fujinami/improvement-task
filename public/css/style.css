@@ -255,7 +255,8 @@ li{
 }
 .pt-reserve{
   position: relative;
-  right:13%;
+  right:3%;
+  bottom:70px
 }
 .pt-modal-cancel{
   white-space: nowrap;

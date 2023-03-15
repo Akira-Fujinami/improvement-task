@@ -69,7 +69,7 @@ class CalendarView{
           }else{
             // $html[]='<input type="submit" class="btn btn-danger p-0 w-75" style="font-size:12px" value=""'.$reservePart_name.'</input>';
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" style="font-size:12px" >'. $reservePart_name .'</button>';
-            $html[]='<button type="submit" name="delete_date" class="reserve-modal-open pt-modal-cancel" form="deleteParts" value="'. $id .'" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.'>キャンセル</button>';
+            $html[]='<button type="submit" class="reserve-modal-open pt-modal-cancel" form="deleteParts" value="'. $id .'" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.'>キャンセル</button>';
             $html[] = '<input type="hidden" name="getPart[]" value=""'.$id.' form="reserveParts">';
           };
           
@@ -97,7 +97,7 @@ class CalendarView{
     $html[]='</div>';
     $html[]='<input type="hidden" class="modal_id" name="reserve_id">';
     $html[]='<p>上記の予約をキャンセルしてもよろしいでしょうか</p>';
-    $html[]='<button type="submit" class="btn btn-danger pt-cancel" name="delete_date" form="deleteParts" value="'. $id .'" >キャンセル</button>';
+    $html[]='<button type="submit" class="modal_id btn btn-danger pt-cancel" name="delete_date" form="deleteParts" value="'. $id .'" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.' >キャンセル</button>';
     $html[]='<a class="js-modal-close btn btn-primary pt-close" href="">閉じる</a>';
     $html[] = '</tbody>';
     $html[] = '</table>';
