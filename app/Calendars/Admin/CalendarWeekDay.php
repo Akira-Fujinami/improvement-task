@@ -58,7 +58,6 @@ class CalendarWeekDay{
   }
   function dayPartCounts_three($day){  
     $three_part = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '3')->first();
-  
     if($three_part){
       $three_part_reserve = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '3')->first()->id;
       $three_part=ReservesettingUsers::where('reserve_setting_id',$three_part_reserve)->count();
@@ -110,5 +109,18 @@ class CalendarWeekDay{
     $html[] = '<p class="d-flex m-0 p-0">3部<input class="w-25" style="height:20px;" name="3" type="text" form="reserveSetting"></p>';
     $html[] = '</div>';
     return implode('', $html);
+  }
+  function reserveDetail($day){
+    // dd($day);
+    $three_part = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '1')->first();
+    if($three_part){
+      $three_part_reserve = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '1')->first()->id;
+      $three_part=ReservesettingUsers::select('user_id')->where('reserve_setting_id',$three_part_reserve)->get();
+    // dd($three_part);
+    }
+    else{
+      $three_part="0";
+    }
+    return $three_part;
   }
 }

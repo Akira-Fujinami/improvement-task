@@ -47,8 +47,11 @@ class CalendarView{
         $html[] = $day->render();
         if($day->everyDay()){
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<p class="d-flex m-0 p-0">1部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_one($day->everyDay()).'</a></p>';
-          $html[] = '<p class="d-flex m-0 p-0">2部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_two($day->everyDay()).'</a></p>';
+          // $html[]='<p>'.$day->reserveDetail($day->everyDay()).'</p>';
+          $html[] = '<p class="d-flex m-0 p-0">1部 <a href={{url(/calendar/{id}/{data}/{part?})}}>'.$day->dayPartCounts_one($day->everyDay()).'</a></p>';
+          $html[]='<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail($day->everyDay()).' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button>';
+          $html[]='<input type="hidden" name="reserveDetailID" value='.$day->reserveDetail($day->everyDay()).' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">2部 <a href={{route(calendar.admin.detai,[id])}}>'.$day->dayPartCounts_two($day->everyDay()).'</a></p>';
           $html[] = '<p class="d-flex m-0 p-0">3部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_three($day->everyDay()).'</a></p>';
         }else{
           $html[] = '<p class="d-flex m-0 p-0">1部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_one($day->everyDay()).'</a></p>';
@@ -64,7 +67,7 @@ class CalendarView{
     $html[] = '</tbody>';
     $html[] = '</table>';
     $html[] = '</div>';
-
+    $html[] = '<form action="/calendar" method="get" id="reserveDetail">'.csrf_field().'</form>';
     return implode("", $html);
   }
 

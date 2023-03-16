@@ -275,3 +275,11 @@ li{
   position: relative;
   left:30%;
 }
+.reserve-name{
+  white-space: nowrap;
+  padding-left: 200px;
+}
+.reserve-detail{
+  border:none;
+  background: none;
+}
