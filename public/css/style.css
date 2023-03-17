@@ -277,9 +277,14 @@ li{
 }
 .reserve-name{
   white-space: nowrap;
-  padding-left: 200px;
 }
 .reserve-detail{
   border:none;
   background: none;
+  cursor: pointer;
+}
+.reserve-detail:active{
+  background-color: none;
+  border:none;
+  outline: none;
 }

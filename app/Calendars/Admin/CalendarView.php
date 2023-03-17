@@ -47,17 +47,22 @@ class CalendarView{
         $html[] = $day->render();
         if($day->everyDay()){
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          // $html[]='<p>'.$day->reserveDetail($day->everyDay()).'</p>';
-          $html[] = '<p class="d-flex m-0 p-0">1部 <a href={{url(/calendar/{id}/{data}/{part?})}}>'.$day->dayPartCounts_one($day->everyDay()).'</a></p>';
-          $html[]='<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail($day->everyDay()).' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button>';
-          $html[]='<input type="hidden" name="reserveDetailID" value='.$day->reserveDetail($day->everyDay()).' form="reserveDetail">';
-          $html[] = '<p class="d-flex m-0 p-0">2部 <a href={{route(calendar.admin.detai,[id])}}>'.$day->dayPartCounts_two($day->everyDay()).'</a></p>';
-          $html[] = '<p class="d-flex m-0 p-0">3部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_three($day->everyDay()).'</a></p>';
+          // $reserveDetail=$day->reserveDetail($day->everyDay())->first()->id;
+          // dd($reserveDetail);
+          // $html[]='<p>'.$day->reserveDetail($day->everyDay())->first()->id.'</p>';
+          $html[] = '<p class="d-flex m-0 p-0">1部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">2部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_two($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">3部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_three($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">';
         }else{
-          $html[] = '<p class="d-flex m-0 p-0">1部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_one($day->everyDay()).'</a></p>';
-          $html[] = '<p class="d-flex m-0 p-0">2部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_two($day->everyDay()).'</a></p>';
-          $html[] = '<p class="d-flex m-0 p-0">3部 <a href={{route(calendar.admin.detail)}}>'.$day->dayPartCounts_three($day->everyDay()).'</a></p>';
-
+          $html[] = '<p class="d-flex m-0 p-0">1部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">2部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_two($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">3部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_three($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">';
         }
       }
         $html[] = '</td>';

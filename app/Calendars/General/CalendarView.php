@@ -64,7 +64,7 @@ class CalendarView{
             $reservePart_name = "リモ3部";
           }
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75 reserve-name" style="font-size:12px">'.$reservePart_name.'</p>';
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart_name.'</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
             $html[] = '<button type="submit" class="reserve-modal-open btn btn-danger p-0 w-75 reserve-name" style="font-size:12px" form="deleteParts" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.'>'. $reservePart_name .'</button>';
@@ -94,7 +94,7 @@ class CalendarView{
     $html[]='</div>';
     $html[]='<input type="hidden" class="modal_id" name="reserve_id">';
     $html[]='<p>上記の予約をキャンセルしてもよろしいでしょうか</p>';
-    $html[]='<button type="submit" class="modal_id btn btn-danger pt-cancel" name="delete_date" form="deleteParts" value="'. $id .'" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.' >キャンセル</button>';
+    $html[]='<button type="submit" class="modal_id btn btn-danger pt-cancel" name="delete_date" form="deleteParts"  >キャンセル</button>';
     $html[]='<a class="js-modal-close btn btn-primary pt-close" href="">閉じる</a>';
     $html[] = '</tbody>';
     $html[] = '</table>';

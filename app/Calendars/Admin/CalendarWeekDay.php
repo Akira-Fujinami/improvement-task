@@ -110,7 +110,7 @@ class CalendarWeekDay{
     $html[] = '</div>';
     return implode('', $html);
   }
-  function reserveDetail($day){
+  function reserveDetails($day){
     // dd($day);
     $three_part = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '1')->first();
     if($three_part){
@@ -122,5 +122,18 @@ class CalendarWeekDay{
       $three_part="0";
     }
     return $three_part;
+  }
+  function reserveDetail_one($day){
+    // dd($day);
+    // $reserveDetail=reserveSettings::where('setting_reserve', $day)->where('setting_part',1)->first()->id;
+    // dd($reserveDetail);
+    // $reserveDetails=ReservesettingUsers::select('user_id')->where('reserve_setting_id',$reserveDetail)->get();
+     return reserveSettings::where('setting_reserve', $day)->where('setting_part',1);
+   }
+   function reserveDetail_two($day){
+     return reserveSettings::where('setting_reserve', $day)->where('setting_part',2);
+   }
+   function reserveDetail_three($day){
+    return reserveSettings::where('setting_reserve', $day)->where('setting_part',3);
   }
 }

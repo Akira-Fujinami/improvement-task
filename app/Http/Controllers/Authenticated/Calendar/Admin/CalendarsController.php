@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Calendars\Admin\CalendarView;
 use App\Calendars\Admin\CalendarSettingView;
 use App\Models\Calendars\ReserveSettings;
+use App\Models\Calendars\ReserveSettingUsers;
 use App\Models\Calendars\Calendar;
 use App\Models\USers\User;
 use Auth;
@@ -19,12 +20,26 @@ class CalendarsController extends Controller
         return view('authenticated.calendar.admin.calendar', compact('calendar'));
     }
 
-    public function reserveDetail($id,$date,$part){
+    public function reserveDetail(Request $request){
+        // dd($request);
+        $reserveDetail=$request->reserveDetail;
+        $Date=ReserveSettings::where('id',$reserveDetail)->first();
+        // dd($reserveDetail);
         // $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
-        $reservePersons=User::where('id',$request)->get();
-        dd($reservePersons);
-        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
-    }
+        // $reservePersons=User::join('Reserve_Setting_Users',function($join)use($reserveDetail){
+        //     $join->where('reserve_setting_id','=',$reserveDetail);
+        // })->get();
+        // dd($reservePersons);
+        $reservePersons=ReservesettingUsers::select('user_id')->where('reserve_setting_id',$reserveDetail)->first();
+        if($reservePersons==null){
+            return view('authenticated.calendar.admin.reserve_detail_null',compact('Date'));
+        }
+        else{
+        $reserveDetails=$reservePersons->user_id;
+        // dd($reserveDetails);
+        $reservePersonUser=User::where('id',$reserveDetails)->get();
+        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersonUser','Date'));
+    }}
 
     public function reserveSettings(){
         $calendar = new CalendarSettingView(time());
@@ -33,6 +48,7 @@ class CalendarsController extends Controller
 
     public function updateSettings(Request $request){
         $reserveDays = $request->input('reserve_day');
+        // dd($reserveDays);
         foreach($reserveDays as $day => $parts){
             foreach($parts as $part => $frame){
                 $reservesetting=ReserveSettings::updateOrCreate([
