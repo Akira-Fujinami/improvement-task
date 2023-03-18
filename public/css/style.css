@@ -25,7 +25,7 @@ li{
 }
 /* サイドバー */
 .sidebar{
-  width:150px;
+  width:230px;
   height:100vh;
   background-color:#03AAD2;
   font-weight:bold;
@@ -33,10 +33,75 @@ li{
 .main-container{
   width:100%;
 }
-.sidebar p a{
+.sidebar a{
   color:#FFF;
+  position: relative;
+  left: 15%;
+  top:20px
 }
-
+.auth-sidebar-top a:hover{
+  background-color:#666;
+  padding: 5% 55% 5% 5%;
+  white-space: nowrap;
+  box-shadow:0px 0px 10px #666;
+  transition: 0.4s;
+  color: white;
+  border-bottom: none;
+}
+.auth-sidebar-logout a:hover{
+  background-color:#666;
+  padding: 5% 38% 5% 5%;
+  white-space: nowrap;
+  box-shadow:0px 0px 10px #666;
+  transition: 0.4s;
+  color: white;
+  border-bottom: none;
+}
+.auth-sidebar-reserve a:hover{
+  background-color:#666;
+  padding: 5% 30% 5% 5%;
+  white-space: nowrap;
+  box-shadow:0px 0px 10px #666;
+  transition: 0.4s;
+  color: white;
+  border-bottom: none;
+}
+.auth-sidebar-confirmation a:hover{
+  background-color:#666;
+  padding: 5% 13% 5% 5%;
+  white-space: nowrap;
+  box-shadow:0px 0px 10px #666;
+  transition: 0.4s;
+  color: white;
+  border-bottom: none;
+}
+.auth-sidebar-frame a:hover{
+  background-color:#666;
+  padding: 5% 22% 5% 5%;
+  white-space: nowrap;
+  box-shadow:0px 0px 10px #666;
+  transition: 0.4s;
+  color: white;
+  border-bottom: none;
+}
+.auth-sidebar-posts a:hover{
+  background-color:#666;
+  padding: 5% 55% 5% 5%;
+  white-space: nowrap;
+  box-shadow:0px 0px 10px #666;
+  transition: 0.4s;
+  color: white;
+  border-bottom: none;
+}
+.auth-sidebar-user a:hover{
+  background-color:#666;
+  padding: 5% 30% 5% 5%;
+  white-space: nowrap;
+  box-shadow:0px 0px 10px #666;
+  transition: 0.4s;
+  color: white;
+  border-bottom: none;
+}
 /* トップページ */
 .user_status{
   border-radius:10px;
@@ -53,9 +118,6 @@ li{
 .days-sun .day{
   color:red;
 }
-/* .day{
-  color:red;
-} */
 .past-day{
   background:#EEE;
 }
@@ -137,7 +199,23 @@ li{
   font-size:12px;
   color:red;
 }
-
+.post-subcategory{
+  border-radius: 40%;
+  padding: 0% 2% 0% 2%;
+}
+.post-create{
+  padding:3% 41% 3% 41%;
+  border-radius: 5%;
+  background-color: #03AAD2;
+}
+.post-create a{
+  color:#fff;
+  font-weight: bold;
+}
+.research{
+  background: none;
+  border: none;
+}
 /* 掲示板 詳細画面 */
 .contributor{
   font-size:12px;

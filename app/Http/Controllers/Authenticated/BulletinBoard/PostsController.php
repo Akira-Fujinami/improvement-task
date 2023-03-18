@@ -20,15 +20,23 @@ use Auth;
 class PostsController extends Controller
 {
     public function show(Request $request){
-        $posts = Post::with('user', 'postComments','likes')->get();
+        $posts = Post::with('user', 'postComments','likes','subcategories')->get();
         // dd($posts);
         $main_categories = MainCategory::get();
         // $sub=$request->input('id_posts');
         $like = new Like;
         if(!empty($request->keyword)){
-            $posts = Post::with('user', 'postComments')
-            ->where('post_title', 'like', '%'.$request->keyword.'%')
-            ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
+            $sub_category=SubCategory::select('id')->where('sub_category',$request->keyword)->first();
+            if($sub_category==null){
+                $posts = Post::with('user', 'postComments')
+                ->where('post_title', 'like', '%'.$request->keyword.'%')
+                ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
+            }
+            else{
+                $sub_category_id=$sub_category->id;
+                $post_sub_category=PostSubCategory::select('post_id')->where('sub_category_id',$sub_category_id)->get();
+                $posts=Post::whereIn('id',$post_sub_category)->get();
+            }
         }
         else if($request->sub_posts){
             $sub=SubCategory::select('id')->where('sub_category',$request->sub_posts)->get();
