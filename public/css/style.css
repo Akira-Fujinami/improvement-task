@@ -361,6 +361,7 @@ li{
   border:none;
   background: none;
   cursor: pointer;
+  outline:none
 }
 .reserve-detail:active{
   background-color: none;

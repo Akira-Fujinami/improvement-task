@@ -23,23 +23,19 @@ class CalendarsController extends Controller
     public function reserveDetail(Request $request){
         // dd($request);
         $reserveDetail=$request->reserveDetail;
-        // dd($reserveDetail);
+        dd($reserveDetail);
         $reservePersons=ReserveSettings::with('users')->where('id',$reserveDetail)->get();
-        // dd($reservePersons);
+        dd($reservePersons);
         $Date=ReserveSettings::where('id',$reserveDetail)->first();
         // $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
         // $reservePersons=ReservesettingUsers::select('user_id')->where('reserve_setting_id',$reserveDetail)->get();
         // dd($reservePersons);
-        if($reservePersons==null){
-            return view('authenticated.calendar.admin.reserve_detail_null',compact('Date'));
-        }
-        else{
         // $reserveDetails=$reservePersons->user_id;
         // dd($reserveDetails);
         // $reservePersonUser=User::where('id',$reserveDetails)->get();
         $reservePlace=array('リモート');
         return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons','Date','reservePlace'));
-    }}
+    }
 
     public function reserveSettings(){
         $calendar = new CalendarSettingView(time());

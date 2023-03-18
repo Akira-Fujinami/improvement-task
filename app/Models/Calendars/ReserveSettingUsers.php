@@ -13,5 +13,6 @@ class ReserveSettingUsers extends Model
         'user_id',
         'reserve_setting_id',
     ];
+    
 
 }
