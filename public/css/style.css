@@ -256,7 +256,7 @@ li{
 .pt-reserve{
   position: relative;
   right:13%;
-  bottom:30px
+  top:40px
 }
 .pt-modal-cancel{
   white-space: nowrap;
@@ -277,6 +277,7 @@ li{
 }
 .reserve-name{
   white-space: nowrap;
+  padding: 10px;
 }
 .reserve-detail{
   border:none;
@@ -287,4 +288,9 @@ li{
   background-color: none;
   border:none;
   outline: none;
+}
+.reserve-place{
+  white-space: nowrap;
+  position: relative;
+  right:80%
 }

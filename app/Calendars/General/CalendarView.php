@@ -64,10 +64,10 @@ class CalendarView{
             $reservePart_name = "リモ3部";
           }
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart_name.'</p>';
+            $html[] = '<p class="m-auto p-0 w-75 reserve-name" style="font-size:12px">'.$reservePart_name.'</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
-            $html[] = '<button type="submit" class="reserve-modal-open btn btn-danger p-0 w-75 reserve-name" style="font-size:12px" form="deleteParts" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.'>'. $reservePart_name .'</button>';
+            $html[] = '<button type="submit" class="reserve-modal-open btn btn-danger p-0 w-90 reserve-name" style="font-size:12px" form="deleteParts" reserve_date='.$reserveDate.' reserve_part='.$reservePart_name.' reserve_id='.$id.'>'. $reservePart_name .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value=""'.$id.' form="reserveParts">';
           };
         }elseif($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
