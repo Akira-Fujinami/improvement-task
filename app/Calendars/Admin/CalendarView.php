@@ -50,19 +50,19 @@ class CalendarView{
           // $reserveDetail=$day->reserveDetail($day->everyDay())->first()->id;
           // dd($reserveDetail);
           // $html[]='<p>'.$day->reserveDetail($day->everyDay())->first()->id.'</p>';
-          $html[] = '<p class="d-flex m-0 p-0">1部<input type="submit" class="reserve-detail" value='.$day->dayPartCounts_one($day->everyDay()).' form="reserveDetail"></p>';
-          $html[]='<input type="hidden" name="reserveDetailID" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
-          $html[] = '<p class="d-flex m-0 p-0">2部<input type="submit" class="reserve-detail" value='.$day->dayPartCounts_two($day->everyDay()).' form="reserveDetail"></p>';
-          $html[]='<input type="hidden" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">';
-          $html[] = '<p class="d-flex m-0 p-0">3部<input type="submit" class="reserve-detail" value='.$day->dayPartCounts_three($day->everyDay()).' form="reserveDetail"></p>';
-          $html[]='<input type="hidden" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">1部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">2部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_two($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">3部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_three($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">';
         }else{
-          $html[] = '<p class="d-flex m-0 p-0">1部<input type="submit" class="reserve-detail" value='.$day->dayPartCounts_one($day->everyDay()).' form="reserveDetail"></p>';
-          $html[]='<input type="hidden" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
-          $html[] = '<p class="d-flex m-0 p-0">2部<input type="submit" class="reserve-detail" value='.$day->dayPartCounts_two($day->everyDay()).' form="reserveDetail"></p>';
-          $html[]='<input type="hidden" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">';
-          $html[] = '<p class="d-flex m-0 p-0">3部<input type="submit" class="reserve-detail" value='.$day->dayPartCounts_three($day->everyDay()).' form="reserveDetail"></p>';
-          $html[]='<input type="hidden" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">1部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">2部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_two($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">';
+          $html[] = '<p class="d-flex m-0 p-0">3部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_three($day->everyDay()).'</button></p>';
+          $html[]='<input type="hidden" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">';
         }
       }
         $html[] = '</td>';
