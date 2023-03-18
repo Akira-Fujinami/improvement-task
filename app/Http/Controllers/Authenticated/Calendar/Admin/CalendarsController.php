@@ -24,12 +24,7 @@ class CalendarsController extends Controller
         // dd($request);
         $reserveDetail=$request->reserveDetail;
         $Date=ReserveSettings::where('id',$reserveDetail)->first();
-        // dd($reserveDetail);
         // $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
-        // $reservePersons=User::join('Reserve_Setting_Users',function($join)use($reserveDetail){
-        //     $join->where('reserve_setting_id','=',$reserveDetail);
-        // })->get();
-        // dd($reservePersons);
         $reservePersons=ReservesettingUsers::select('user_id')->where('reserve_setting_id',$reserveDetail)->first();
         if($reservePersons==null){
             return view('authenticated.calendar.admin.reserve_detail_null',compact('Date'));
