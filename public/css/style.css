@@ -16,11 +16,14 @@ li{
   position: relative;
   top:10px;
   color:red;
-  font-size:10%;
+  font-size:7%;
 }
 .main_category,.sub_category,.comment{
   font-size:10%;
   color:red;
+  white-space: nowrap;
+}
+.mt-3{
   white-space: nowrap;
 }
 /* サイドバー */
@@ -224,7 +227,7 @@ li{
   left:460px
 }
 .error_message{
-  font-size:12px;
+  font-size:10px;
   color:red;
 }
 .button-comment{
@@ -437,11 +440,6 @@ li input{
   position: relative;
   right:1%;
 }
-.pt-modal-cancel{
-  white-space: nowrap;
-  width:90%;
-  font-size:small
-}
 .reserve-dates,.reserve-parts{
   border:none;
   background: none;
@@ -478,7 +476,7 @@ li input{
   position: relative;
   right:80%
 }
-.post-research{
+.post-search{
   margin-top: 10px;
 }
 .search-word{
@@ -510,7 +508,7 @@ li input{
   position: relative;
   top:30px;
   right:30px;
-  background-color: grey;
+  background-color: #afafb0;
 }
 .category-updown{
   font-size: small;
@@ -528,7 +526,7 @@ li input{
   position: relative;
   top:10px;
   right:10px;
-  background-color: grey;
+  background-color: #afafb0;
 }
 .reset{
   position: relative;
@@ -551,4 +549,7 @@ li input{
 }
 .border-primary{
   font-size: small;
+}
+.delete-btn a{
+  color:#FFF
 }

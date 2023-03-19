@@ -36,7 +36,7 @@
       <div class="post-create">
         <a href="{{ route('post.input') }}">投稿</a>
       </div>
-      <div class="post-research">
+      <div class="post-search">
         <span>検索</span>
         <input type="text" class="search-image-text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
         <input type="image" class="search-images" src="../images/検索窓.png" alt="検索ボタン" form="postSearchRequest">
@@ -47,15 +47,15 @@
       <ul>
         @foreach($main_categories as $main_category)
         <div class="accordion js-accordion">
-            <span class="main_categories">{{ $main_category->main_category }}</span>
-</div>
-      <div class="subcategories">
+          <span class="main_categories">{{ $main_category->main_category }}</span>
+        </div>
+        <div class="subcategories">
         @foreach($main_category->subCategories as $subCategory)
-        <li>
+          <li>
             <input type="submit" name="sub_posts" value="{{$subCategory->sub_category}}" form="postSearchRequest">
-</li>
-            @endforeach
-</div>
+          </li>
+        @endforeach
+        </div>
         @endforeach
       </ul>
     </div>
