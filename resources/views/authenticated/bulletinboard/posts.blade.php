@@ -43,21 +43,19 @@
       </div>
       <input type="submit" name="like_posts" class="category_btn_like" value="いいねした投稿" form="postSearchRequest">
       <input type="submit" name="my_posts" class="category_btn_mine" value="自分の投稿" form="postSearchRequest">
-      <span class="categories">カテゴリー</span>
+
       <ul>
         @foreach($main_categories as $main_category)
-        <div class="accordion">
-          <li>
+        <div class="accordion js-accordion">
             <span class="main_categories">{{ $main_category->main_category }}</span>
-          </li>
-        </div>
+</div>
+      <div class="subcategories">
         @foreach($main_category->subCategories as $subCategory)
-        <div class="subcategories-layout">
-          <li>
-            <input type="submit" name="sub_posts" class="subcategories" value="{{$subCategory->sub_category}}" form="postSearchRequest">
-          </li>
-        </div>
-        @endforeach
+        <li>
+            <input type="submit" name="sub_posts" value="{{$subCategory->sub_category}}" form="postSearchRequest">
+</li>
+            @endforeach
+</div>
         @endforeach
       </ul>
     </div>

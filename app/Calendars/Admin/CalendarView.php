@@ -2,6 +2,7 @@
 namespace App\Calendars\Admin;
 use Carbon\Carbon;
 use App\Models\Users\User;
+use App\Models\Calendars\ReserveSettings;
 
 class CalendarView{
   private $carbon;
@@ -46,9 +47,7 @@ class CalendarView{
         }
         $html[] = $day->render();
         if($day->everyDay()){
-          if($day->reserveDetail_null($day->everyDay())==0){
-            return implode("", $html);
-          }
+          if(ReserveSettings::select()->exists()){            
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<p class="d-flex m-0 p-0">1部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button></p>';
           $html[]='<input type="hidden" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
@@ -64,6 +63,7 @@ class CalendarView{
           $html[] = '<p class="d-flex m-0 p-0">3部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_three($day->everyDay()).'</button></p>';
           $html[]='<input type="hidden" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">';
         }
+      }
       }
         $html[] = '</td>';
       }

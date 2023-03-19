@@ -176,12 +176,13 @@ li{
   display:none;
 }
 .subcategories{
-  display: none;
   position: relative;
   left:10%;
+  bottom:40px;
+  width:40%;
   cursor: pointer;
 }
-.subcategories-layout li input{
+.subcategories input{
   background-color: none;
   border:none;
   color: blue;
@@ -321,9 +322,7 @@ li{
   border:none;
   background:pink;
   color:#FFF;
-  padding: 7% 5% 7% 5%;
-  position: relative;
-  top:20px;
+  padding: 5% 4% 5% 4%;
   cursor: pointer;
 }
 .category_btn_mine{
@@ -333,9 +332,7 @@ li{
   border:none;
   background:orange;
   color:#FFF;
-  padding: 8% 7% 7% 8%;
-  position: relative;
-  top:20px;
+  padding: 5% 8% 5% 8%;
   left:10px;
   cursor: pointer;
 }
@@ -346,36 +343,36 @@ li{
 }
 .main_categories{
   position: relative;
-  top:40px
 }
 li input{
   position: relative;
   top:40px
 }
-.categories{
+.accordion{
   position: relative;
-  top:40px
+  cursor: pointer;
 }
-.accordion {
-  position: relative;
-  cursor:pointer;
-}
-.accordion::after {
-  border-right: solid 2px black;
-  border-top: solid 2px black;
+
+
+.accordion:after {
   content: "";
-  display: block;
-  height: 8px;
   position: absolute;
   right: 25px;
-  top: 200%;
+  top: 38%;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: solid 2px black;
+  border-right: solid 2px black;
+  -webkit-transform: rotate(135deg);
   transform: rotate(135deg);
-  transition:.3s ease-in-out, top .3s ease-in-out;
-  width: 8px;
 }
-.accordion.open::after {
-  top: 207%;
+
+.accordion.open:after {
+  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
+  top: 45%;
 }
 /* ユーザー検索 */
 .reserve_users_area{

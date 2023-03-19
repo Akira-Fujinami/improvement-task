@@ -7,11 +7,10 @@ $(function () {
     $('.subject_inner').slideToggle();
   });
 });
+$(".subcategories").hide();
 $(function () {
-  // タイトルをクリックすると
-  $(".accordion").on("click", function (e) {
-    // タイトルにopenクラスを付け外しして矢印の向きを変更
+  $(".js-accordion").on("click", function () {
+    $(this).next().slideToggle();
     $(this).toggleClass("open");
-    $('.subcategories').slideToggle('normal');
   });
 });
