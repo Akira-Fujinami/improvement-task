@@ -46,10 +46,10 @@ class CalendarView{
         }
         $html[] = $day->render();
         if($day->everyDay()){
+          if($day->reserveDetail_null($day->everyDay())==0){
+            return implode("", $html);
+          }
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          // $reserveDetail=$day->reserveDetail($day->everyDay())->first()->id;
-          // dd($reserveDetail);
-          // $html[]='<p>'.$day->reserveDetail($day->everyDay())->first()->id.'</p>';
           $html[] = '<p class="d-flex m-0 p-0">1部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button></p>';
           $html[]='<input type="hidden" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
           $html[] = '<p class="d-flex m-0 p-0">2部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_two($day->everyDay()).'</button></p>';

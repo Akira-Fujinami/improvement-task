@@ -179,6 +179,7 @@ li{
   display: none;
   position: relative;
   left:10%;
+  cursor: pointer;
 }
 .subcategories-layout li input{
   background-color: none;
@@ -410,9 +411,9 @@ li input{
   top:150px;
 }
 .search-images{
-  width:13%;
+  width:12%;
   position: relative;
-  top:8px
+  top:6px
 }
 .search-image-text{
   border-radius: 5%;
@@ -462,17 +463,16 @@ li input{
 }
 .reserve-detail{
   border:none;
-  background: none;
+  background: transparent;
+  color: #03AAD2;
   cursor: pointer;
-  outline:none;
+}
+.reserve-detail:hover{
+  border-bottom: 2px solid #03AAD2;
+  text-underline-offset:10px;
 }
 .reserve-detail:active{
-  background-color: none;
-  border:none;
-  outline: none;
-}
-.reserve-detail:before{
-  background-color: none;
+  background: transparent;
   border:none;
   outline: none;
 }
