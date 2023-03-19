@@ -222,7 +222,7 @@
         <div class="select_teacher d-none">
           <label class="d-block m-0" style="font-size:13px">選択科目</label>
           @foreach($subjects as $subject)
-          <div class="">
+          <div class="select-student">
             <input type="checkbox" name="subject[]" value="{{ $subject->id }}">
             <label>{{ $subject->subject }}</label>
           </div>

@@ -26,6 +26,9 @@ li{
 .mt-3{
   white-space: nowrap;
 }
+.select-student{
+  display: inline-block;
+}
 /* サイドバー */
 .sidebar{
   width:230px;
@@ -239,7 +242,7 @@ li{
   left:500px
 }
 .post-subcategory{
-  border-radius: 50%;
+  border-radius: 40vh;
   padding: 0% 2% 0% 2%;
 }
 .post-create{
@@ -401,9 +404,8 @@ li input{
 .search_conditions span{
   cursor:pointer;
   position: relative;
-  right:20px;
+  left:40px;
   top:150px;
-  left:20px
 }
 .search_conditions_inner{
   display:none;
@@ -417,7 +419,7 @@ li input{
   top:6px
 }
 .search-image-text{
-  border-radius: 5%;
+  border-radius: 10vh;
   box-shadow: none;
 }
 .subject_edit_btn{
@@ -482,7 +484,7 @@ li input{
 .search-word{
   position: relative;
   top:50px;
-  left:50px;
+  left:40px;
   font-size: larger;
   font-weight: bold;
 }
@@ -491,7 +493,9 @@ li input{
   position: relative;
   top:50px;
   left:40px;
+  border-radius: 100vh;
   padding-right: -200px;
+  background-color: #f2f2f2;
 }
 .search-category{
   position: relative;
@@ -503,12 +507,12 @@ li input{
   left:15%
 }
 .category-select{
-  border-radius: 30%;
-  padding: 10px 0px 10px 0px;
+  border-radius: 100vh;
+  padding: 5px 0px 5px 0px;
   position: relative;
   top:30px;
   right:30px;
-  background-color: #afafb0;
+  background-color: #f2f2f2;
 }
 .category-updown{
   font-size: small;
@@ -521,17 +525,17 @@ li input{
   top:130px;
 }
 .updown-select{
-  border-radius: 30%;
-  padding: 10px 0px 10px 0px;
+  border-radius: 100vh;
+  padding: 5px 10px 5px 5px;
   position: relative;
   top:10px;
-  right:10px;
-  background-color: #afafb0;
+  right:18px;
+  background-color: #f2f2f2;
 }
 .reset{
   position: relative;
   top:200px;
-  left:100px;
+  left:80px;
   background: none;
   border: none;
   color:blue;
@@ -540,7 +544,7 @@ li input{
 .search-button{
   position: relative;
   top:140px;
-  left:60px;
+  left:40px;
   padding: 3px 50px 3px 50px;
   background-color: #03AAD2;
   border: none;
