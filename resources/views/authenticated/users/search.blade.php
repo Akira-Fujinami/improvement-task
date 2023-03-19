@@ -75,12 +75,12 @@
       <div class="search-add">
         <p class="m-0 search_conditions"><span>検索条件の追加</span></p>
         <div class="search_conditions_inner">
-          <div>
+          <div class="selected-sex">
             <label>性別</label>
             <span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
             <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
           </div>
-          <div>
+          <div class="selected-role">
             <label>権限</label>
             <select name="role" form="userSearchRequest" class="engineer">
               <option selected disabled>----</option>
@@ -90,7 +90,7 @@
               <option value="4" class="">生徒</option>
             </select>
           </div>
-          <div class="selected_engineer">
+          <div class="selected-engineer">
           <label>選択科目</label>
             @foreach($subjects as $subject)
             <input type="checkbox" name="subject[]" value="{{$subject->id}}" form="userSearchRequest">

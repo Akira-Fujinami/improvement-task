@@ -248,7 +248,7 @@ li{
 .post-create{
   padding:3% 41% 3% 41%;
   border-radius: 5%;
-  background-color: #03AAD2;
+  background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
   cursor: pointer;
 }
 .post-create a{
@@ -329,7 +329,7 @@ li{
   border:none;
   background:pink;
   color:#FFF;
-  padding: 5% 4% 5% 4%;
+  padding: 2% 4% 2% 4%;
   cursor: pointer;
 }
 .category_btn_mine{
@@ -339,17 +339,20 @@ li{
   border:none;
   background:orange;
   color:#FFF;
-  padding: 5% 8% 5% 8%;
+  position: relative;
   left:10px;
+  padding: 2% 8% 2% 8%;
+  margin: 10px 0px 10px 0px;
   cursor: pointer;
 }
-.main_categories span,
 .sub_categories li input{
   list-style:none;
   cursor:pointer;
 }
 .main_categories{
   position: relative;
+  font-weight: bold;
+  left:10px;
 }
 li input{
   position: relative;
@@ -404,7 +407,7 @@ li input{
 .search_conditions span{
   cursor:pointer;
   position: relative;
-  left:40px;
+  left:27px;
   top:150px;
 }
 .search_conditions_inner{
@@ -413,14 +416,20 @@ li input{
   position: relative;
   top:150px;
 }
+.selected-role,.selected-sex,.selected-engineer{
+  position: relative;
+  left:30px
+}
 .search-images{
   width:12%;
   position: relative;
-  top:6px
+  top:6px;
+  right:30px
 }
 .search-image-text{
-  border-radius: 10vh;
+  border-radius: 10px;
   box-shadow: none;
+  border: 1px solid black;
 }
 .subject_edit_btn{
   font-size:12px;
@@ -488,7 +497,7 @@ li input{
 .search-word{
   position: relative;
   top:50px;
-  left:40px;
+  left:27px;
   font-size: larger;
   font-weight: bold;
 }
@@ -496,7 +505,7 @@ li input{
   border-radius: 5%;
   position: relative;
   top:50px;
-  left:40px;
+  left:27px;
   border-radius: 100vh;
   padding-right: -200px;
   background-color: #f2f2f2;
@@ -504,11 +513,15 @@ li input{
 .search-category{
   position: relative;
   top:70px;
+  right:13px
 }
 .category-word{
   font-size: small;
   position: relative;
   left:15%
+}
+.category-span{
+  position: relative;
 }
 .category-select{
   border-radius: 100vh;
@@ -521,7 +534,7 @@ li input{
 .category-updown{
   font-size: small;
   position: relative;
-  left:15%;
+  left:10%;
   bottom:23px
 }
 .search-updown{
@@ -533,13 +546,13 @@ li input{
   padding: 5px 10px 5px 5px;
   position: relative;
   top:10px;
-  right:18px;
+  right:31px;
   background-color: #f2f2f2;
 }
 .reset{
   position: relative;
   top:200px;
-  left:110px;
+  left:97px;
   background: none;
   border: none;
   color:blue;
@@ -548,7 +561,7 @@ li input{
 .search-button{
   position: relative;
   top:140px;
-  left:40px;
+  left:27px;
   padding: 3px 50px 3px 50px;
   background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
   border: none;

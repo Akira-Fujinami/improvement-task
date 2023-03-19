@@ -43,7 +43,7 @@
       </div>
       <input type="submit" name="like_posts" class="category_btn_like" value="いいねした投稿" form="postSearchRequest">
       <input type="submit" name="my_posts" class="category_btn_mine" value="自分の投稿" form="postSearchRequest">
-
+      <sopan class="category-span">カテゴリー</span>
       <ul>
         @foreach($main_categories as $main_category)
         <div class="accordion js-accordion">
