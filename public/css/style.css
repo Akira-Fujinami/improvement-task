@@ -14,9 +14,8 @@ li{
 }
 .error-overname,.error-undername,.error-over_kana,.error-under_kana,.error-mail,.error-birth,.error-password,.error-sex,.error-role{
   position: relative;
-  top:10px;
   color:red;
-  font-size:7%;
+  font-size:5%;
 }
 .main_category,.sub_category,.comment{
   font-size:10%;
