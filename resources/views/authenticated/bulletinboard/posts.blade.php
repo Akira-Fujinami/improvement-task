@@ -16,13 +16,13 @@
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status">
           <div class="mr-5">
-            <i class="fa fa-comment"></i><span class="">{{$post->postComments()->count()}}</span>
+            <i class="fa fa-comment button-comment"></i><span class="comment-count">{{$post->postComments()->count()}}</span>
           </div>
           <div>
             @if(Auth::user()->is_Like($post->id))
-            <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{$post->id}}">{{$like->likeCounts($post->id)}}</span></p>
+            <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{$post->id}} like-count">{{$like->likeCounts($post->id)}}</span></p>
             @else
-            <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{$post->id}}">{{$like->likeCounts($post->id)}}</span></p>
+            <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{$post->id}} like-count">{{$like->likeCounts($post->id)}}</span></p>
             @endif
           </div>
         </div>
@@ -33,21 +33,31 @@
   <div class="other_area border w-25">
     <div class="border m-4">
     <form action="{{ route('post.show') }}" method="get" id="postSearchRequest">
-      <button class="post-create"><a href="{{ route('post.input') }}">投稿</a></button>
-      <div class="">
-        <input type="text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
-        <input type="submit" class="research" value="検索" form="postSearchRequest">
+      <div class="post-create">
+        <a href="{{ route('post.input') }}">投稿</a>
       </div>
-      <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">
-      <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
+      <div class="post-research">
+        <span>検索</span>
+        <input type="text" class="search-image-text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
+        <input type="image" class="search-images" src="../images/検索窓.png" alt="検索ボタン" form="postSearchRequest">
+      </div>
+      <input type="submit" name="like_posts" class="category_btn_like" value="いいねした投稿" form="postSearchRequest">
+      <input type="submit" name="my_posts" class="category_btn_mine" value="自分の投稿" form="postSearchRequest">
+      <span class="categories">カテゴリー</span>
       <ul>
-      @foreach($main_categories as $main_category)
-        <li clss="main_categories"> <span>{{ $main_category->main_category }}</span></li>
+        @foreach($main_categories as $main_category)
+        <div class="accordion">
+          <li>
+            <span class="main_categories">{{ $main_category->main_category }}</span>
+          </li>
+        </div>
         @foreach($main_category->subCategories as $subCategory)
-        <li>
-        <input type="submit" name="sub_posts" value="{{$subCategory->sub_category}}" form="postSearchRequest">
-      </li>
-      @endforeach
+        <div class="subcategories-layout">
+          <li>
+            <input type="submit" name="sub_posts" class="subcategories" value="{{$subCategory->sub_category}}" form="postSearchRequest">
+          </li>
+        </div>
+        @endforeach
         @endforeach
       </ul>
     </div>

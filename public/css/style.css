@@ -26,7 +26,7 @@ li{
 /* サイドバー */
 .sidebar{
   width:230px;
-  height:100vh;
+  height:150vh;
   background-color:#03AAD2;
   font-weight:bold;
 }
@@ -41,7 +41,7 @@ li{
 }
 .auth-sidebar-top a:hover{
   background-color:#666;
-  padding: 5% 55% 5% 5%;
+  padding: 5% 42% 5% 10%;
   white-space: nowrap;
   box-shadow:0px 0px 10px #666;
   transition: 0.4s;
@@ -50,7 +50,7 @@ li{
 }
 .auth-sidebar-logout a:hover{
   background-color:#666;
-  padding: 5% 38% 5% 5%;
+  padding: 5% 24% 5% 10%;
   white-space: nowrap;
   box-shadow:0px 0px 10px #666;
   transition: 0.4s;
@@ -59,7 +59,7 @@ li{
 }
 .auth-sidebar-reserve a:hover{
   background-color:#666;
-  padding: 5% 30% 5% 5%;
+  padding: 5% 18% 5% 10%;
   white-space: nowrap;
   box-shadow:0px 0px 10px #666;
   transition: 0.4s;
@@ -68,7 +68,7 @@ li{
 }
 .auth-sidebar-confirmation a:hover{
   background-color:#666;
-  padding: 5% 13% 5% 5%;
+  padding: 5% 0% 5% 10%;
   white-space: nowrap;
   box-shadow:0px 0px 10px #666;
   transition: 0.4s;
@@ -77,7 +77,7 @@ li{
 }
 .auth-sidebar-frame a:hover{
   background-color:#666;
-  padding: 5% 22% 5% 5%;
+  padding: 5% 8% 5% 10%;
   white-space: nowrap;
   box-shadow:0px 0px 10px #666;
   transition: 0.4s;
@@ -86,7 +86,7 @@ li{
 }
 .auth-sidebar-posts a:hover{
   background-color:#666;
-  padding: 5% 55% 5% 5%;
+  padding: 5% 41% 5% 10%;
   white-space: nowrap;
   box-shadow:0px 0px 10px #666;
   transition: 0.4s;
@@ -95,12 +95,19 @@ li{
 }
 .auth-sidebar-user a:hover{
   background-color:#666;
-  padding: 5% 30% 5% 5%;
+  padding: 5% 15% 5% 10%;
   white-space: nowrap;
   box-shadow:0px 0px 10px #666;
   transition: 0.4s;
   color: white;
   border-bottom: none;
+}
+.icon::before {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  content: "\f007";
+  position: relative;
+  right:15px
 }
 /* トップページ */
 .user_status{
@@ -168,6 +175,16 @@ li{
 .sub_categories{
   display:none;
 }
+.subcategories{
+  display: none;
+  position: relative;
+  left:10%;
+}
+.subcategories-layout li input{
+  background-color: none;
+  border:none;
+  color: blue;
+}
 .post_create_area{
   background:#FFF;
   border-radius:10px;
@@ -190,25 +207,46 @@ li{
 .like_btn,
 .un_like_btn{
   cursor:pointer;
+  position: relative;
+  left:460px
 }
 .un_like,
 .un_like_btn{
   color:#E2254D;
+  position: relative;
+  left:460px
+}
+.like-count{
+  position: relative;
+  left:460px
 }
 .error_message{
   font-size:12px;
   color:red;
 }
+.button-comment{
+  position: relative;
+  left:500px
+}
+.comment-count{
+  position: relative;
+  left:500px
+}
 .post-subcategory{
-  border-radius: 40%;
+  border-radius: 50%;
   padding: 0% 2% 0% 2%;
 }
 .post-create{
   padding:3% 41% 3% 41%;
   border-radius: 5%;
   background-color: #03AAD2;
+  cursor: pointer;
 }
 .post-create a{
+  color:#fff;
+  font-weight: bold;
+}
+.post-create a:hover{
   color:#fff;
   font-weight: bold;
 }
@@ -237,7 +275,7 @@ li{
   cursor:pointer;
 }
 .modal-inner-body textarea{
-  height:150px;
+  height:140px;
   resize:none;
 }
 .edit-modal-btn{
@@ -275,20 +313,69 @@ li{
   font-size:10px;
   color:#FFF;
 }
-.category_btn{
+.category_btn_like{
   font-size:12px;
   border-radius:5px;
   padding:0 5px;
   border:none;
-  background:#999;
+  background:pink;
   color:#FFF;
+  padding: 7% 5% 7% 5%;
+  position: relative;
+  top:20px;
+  cursor: pointer;
+}
+.category_btn_mine{
+  font-size:12px;
+  border-radius:5px;
+  padding:0 5px;
+  border:none;
+  background:orange;
+  color:#FFF;
+  padding: 8% 7% 7% 8%;
+  position: relative;
+  top:20px;
+  left:10px;
+  cursor: pointer;
 }
 .main_categories span,
 .sub_categories li input{
   list-style:none;
   cursor:pointer;
 }
-
+.main_categories{
+  position: relative;
+  top:40px
+}
+li input{
+  position: relative;
+  top:40px
+}
+.categories{
+  position: relative;
+  top:40px
+}
+.accordion {
+  position: relative;
+  cursor:pointer;
+}
+.accordion::after {
+  border-right: solid 2px black;
+  border-top: solid 2px black;
+  content: "";
+  display: block;
+  height: 8px;
+  position: absolute;
+  right: 25px;
+  top: 200%;
+  transform: rotate(135deg);
+  transition:.3s ease-in-out, top .3s ease-in-out;
+  width: 8px;
+}
+.accordion.open::after {
+  top: 207%;
+  transform: rotate(-45deg);
+}
 /* ユーザー検索 */
 .reserve_users_area{
   display:flex;
@@ -301,6 +388,7 @@ li{
   background:#FFF;
   border-radius:5px;
 }
+
 .reserve_users_area span{
   font-size:12px;
 }
@@ -310,10 +398,25 @@ li{
 }
 .search_conditions span{
   cursor:pointer;
+  position: relative;
+  right:20px;
+  top:150px;
+  left:20px
 }
 .search_conditions_inner{
   display:none;
   background:#FFF;
+  position: relative;
+  top:150px;
+}
+.search-images{
+  width:13%;
+  position: relative;
+  top:8px
+}
+.search-image-text{
+  border-radius: 5%;
+  box-shadow: none;
 }
 .subject_edit_btn{
   font-size:12px;
@@ -361,9 +464,14 @@ li{
   border:none;
   background: none;
   cursor: pointer;
-  outline:none
+  outline:none;
 }
 .reserve-detail:active{
+  background-color: none;
+  border:none;
+  outline: none;
+}
+.reserve-detail:before{
   background-color: none;
   border:none;
   outline: none;
@@ -372,4 +480,75 @@ li{
   white-space: nowrap;
   position: relative;
   right:80%
+}
+.post-research{
+  margin-top: 10px;
+}
+.search-word{
+  position: relative;
+  top:50px;
+  left:50px;
+  font-size: larger;
+  font-weight: bold;
+}
+.search-keyword{
+  border-radius: 5%;
+  position: relative;
+  top:50px;
+  left:40px;
+  padding-right: -200px;
+}
+.search-category{
+  position: relative;
+  top:70px;
+}
+.category-word{
+  font-size: small;
+  position: relative;
+  left:15%
+}
+.category-select{
+  border-radius: 30%;
+  padding: 10px 0px 10px 0px;
+  position: relative;
+  top:30px;
+  right:30px;
+  background-color: grey;
+}
+.category-updown{
+  font-size: small;
+  position: relative;
+  left:15%;
+  bottom:23px
+}
+.search-updown{
+  position: relative;
+  top:130px;
+}
+.updown-select{
+  border-radius: 30%;
+  padding: 10px 0px 10px 0px;
+  position: relative;
+  top:10px;
+  right:10px;
+  background-color: grey;
+}
+.reset{
+  position: relative;
+  top:200px;
+  left:100px;
+  background: none;
+  border: none;
+  color:blue;
+  cursor: pointer;
+}
+.search-button{
+  position: relative;
+  top:140px;
+  left:60px;
+  padding: 3px 50px 3px 50px;
+  background-color: #03AAD2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

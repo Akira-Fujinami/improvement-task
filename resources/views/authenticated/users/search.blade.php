@@ -54,24 +54,25 @@
   </div>
   <div class="search_area w-25 border">
     <div class="">
+      <span class="search-word">検索</span>
       <div>
-        <input type="text" class="free_word" name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
+        <input type="text" class="free_word search-keyword" name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
       </div>
-      <div>
-        <lavel>カテゴリ</lavel>
-        <select form="userSearchRequest" name="category">
+      <div class="search-category">
+        <lavel class="category-word">カテゴリー</lavel>
+        <select class="category-select" form="userSearchRequest" name="category">
           <option value="name">名前</option>
           <option value="id">社員ID</option>
         </select>
       </div>
-      <div>
-        <label>並び替え</label>
-        <select name="updown" form="userSearchRequest">
+      <div class="search-updown">
+        <label class="category-updown">並び替え</label>
+        <select name="updown" class="updown-select"form="userSearchRequest">
           <option value="ASC">昇順</option>
           <option value="DESC">降順</option>
         </select>
       </div>
-      <div class="">
+      <div class="search-add">
         <p class="m-0 search_conditions"><span>検索条件の追加</span></p>
         <div class="search_conditions_inner">
           <div>
@@ -100,10 +101,10 @@
         </div>
       </div>
       <div>
-        <input type="reset" value="リセット" form="userSearchRequest">
+        <input type="reset" class="reset" value="リセット" form="userSearchRequest">
       </div>
       <div>
-        <input type="submit" name="search_btn" value="検索" form="userSearchRequest">
+        <input type="submit" class="search-button" name="search_btn" value="検索" form="userSearchRequest">
       </div>
     </div>
     <form action="{{ route('user.show') }}" method="get" id="userSearchRequest"></form>

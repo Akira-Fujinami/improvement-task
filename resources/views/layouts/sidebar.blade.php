@@ -20,35 +20,35 @@
     <div class="sidebar">
       @section('sidebar')
       @if(Auth::user()->role==1)
-      <p class="auth-sidebar-top"><a href="{{ route('top.show') }}">トップ</a></p>
-      <p class="auth-sidebar-logout"><a href="/logout">ログアウト</a></p>
-      <p class="auth-sidebar-reserve"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
-      <p class="auth-sidebar-confirmation"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
-      <p class="auth-sidebar-frame"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
-      <p class="auth-sidebar-posts"><a href="{{ route('post.show') }}">掲示板</a></p>
-      <p class="auth-sidebar-user"><a href="{{ route('user.show')}}">ユーザー検索</a></p>
+      <p class="auth-sidebar-top"><a href="{{ route('top.show') }}"><i class="fa-thin fa-house icon"></i>トップ</a></p>
+      <p class="auth-sidebar-logout"><a href="/logout"><i class="fa-solid fa-plane icon"></i>ログアウト</a></p>
+      <p class="auth-sidebar-reserve"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}"><i class="fa-regular fa-calendar icon"></i>スクール予約</a></p>
+      <p class="auth-sidebar-confirmation"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}"><i class="fa-solid fa-check icon"></i>スクール予約確認</a></p>
+      <p class="auth-sidebar-frame"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}"><i class="fa-solid fa-download icon"></i>スクール枠登録</a></p>
+      <p class="auth-sidebar-posts"><a href="{{ route('post.show') }}"><i class="fa-thin fa-comment icon"></i>掲示板</a></p>
+      <p class="auth-sidebar-user"><a href="{{ route('user.show')}}"><i class="fa-thin fa-users icon"></i>ユーザー検索</a></p>
       @elseif(Auth::user()->role==2)
-      <p class="auth-sidebar-top"><a href="{{ route('top.show') }}">トップ</a></p>
-      <p class="auth-sidebar-logout"><a href="/logout">ログアウト</a></p>
-      <p class="auth-sidebar-reserve"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
-      <p class="auth-sidebar-confirmation"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
-      <p class="auth-sidebar-frame"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
-      <p class="auth-sidebar-posts"><a href="{{ route('post.show') }}">掲示板</a></p>
-      <p class="auth-sidebar-user"><a href="{{ route('user.show')}}">ユーザー検索</a></p>
+      <p class="auth-sidebar-top"><a href="{{ route('top.show') }}"><i class="fa-thin fa-house icon"></i>トップ</a></p>
+      <p class="auth-sidebar-logout"><a href="/logout"><i class="fa-solid fa-plane icon"></i>ログアウト</a></p>
+      <p class="auth-sidebar-reserve"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}"><i class="fa-regular fa-calendar icon"></i>スクール予約</a></p>
+      <p class="auth-sidebar-confirmation"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}"><i class="fa-solid fa-check icon"></i>スクール予約確認</a></p>
+      <p class="auth-sidebar-frame"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}"><i class="fa-solid fa-download icon"></i>スクール枠登録</a></p>
+      <p class="auth-sidebar-posts"><i class="fa-solid fa-magnifying-glass"></i><a href="{{ route('post.show') }}"><i class="fa-thin fa-comment icon"></i>掲示板</a></p>
+      <p class="auth-sidebar-user"><a href="{{ route('user.show')}}"><i class="fa-thin fa-users icon"></i>ユーザー検索</a></p>
       @elseif(Auth::user()->role==3)
-      <p class="auth-sidebar-top"><a href="{{ route('top.show') }}">トップ</a></p>
-      <p class="auth-sidebar-logout"><a href="/logout">ログアウト</a></p>
-      <p class="auth-sidebar-reserve"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
-      <p class="auth-sidebar-confirmation"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
-      <p class="auth-sidebar-frame"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
-      <p class="auth-sidebar-posts"><a href="{{ route('post.show') }}">掲示板</a></p>
-      <p class="auth-sidebar-user"><a href="{{ route('user.show')}}">ユーザー検索</a></p>
+      <p class="auth-sidebar-top"><a href="{{ route('top.show') }}"><i class="fa-thin fa-house icon"></i>トップ</a></p>
+      <p class="auth-sidebar-logout"><a href="/logout"><i class="fa-solid fa-plane icon"></i>ログアウト</a></p>
+      <p class="auth-sidebar-reserve"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}"><i class="fa-regular fa-calendar icon"></i>スクール予約</a></p>
+      <p class="auth-sidebar-confirmation"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}"><i class="fa-solid fa-check icon"></i>スクール予約確認</a></p>
+      <p class="auth-sidebar-frame"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}"><i class="fa-solid fa-download icon"></i>スクール枠登録</a></p>
+      <p class="auth-sidebar-posts"><i class="fa-solid fa-magnifying-glass"></i><a href="{{ route('post.show') }}"><i class="fa-thin fa-comment icon"></i>掲示板</a></p>
+      <p class="auth-sidebar-user"><a href="{{ route('user.show')}}"><i class="fa-thin fa-users icon"></i>ユーザー検索</a></p>
       @else
-      <p class="auth-sidebar-top"><a href="{{ route('top.show') }}">トップ</a></p>
-      <p class="auth-sidebar-logout"><a href="/logout">ログアウト</a></p>
-      <p class="auth-sidebar-reserve"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
-      <p class="auth-sidebar-posts"><a href="{{ route('post.show') }}">掲示板</a></p>
-      <p class="auth-sidebar-user"><a href="{{ route('user.show') }}">ユーザー検索</a></p>
+      <p class="auth-sidebar-top"><a href="{{ route('top.show') }}"><i class="fa-thin fa-house icon"></i>トップ</a></p>
+      <p class="auth-sidebar-logout"><a href="/logout"><i class="fa-solid fa-plane icon"></i>ログアウト</a></p>
+      <p class="auth-sidebar-reserve"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}"><i class="fa-regular fa-calendar icon"></i>スクール予約</a></p>
+      <p class="auth-sidebar-posts"><a href="{{ route('post.show') }}"><i class="fa-thin fa-comment icon"></i>掲示板</a></p>
+      <p class="auth-sidebar-user"><a href="{{ route('user.show') }}"><i class="fa-thin fa-users icon"></i>ユーザー検索</a></p>
       @endif
       @show
     </div>
