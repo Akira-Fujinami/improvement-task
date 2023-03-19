@@ -441,6 +441,10 @@ li input{
 .pt-reserve{
   position: relative;
   right:1%;
+  background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
+}
+.text-right input{
+  color: #fff;
 }
 .reserve-dates,.reserve-parts{
   border:none;
@@ -535,7 +539,7 @@ li input{
 .reset{
   position: relative;
   top:200px;
-  left:80px;
+  left:110px;
   background: none;
   border: none;
   color:blue;
@@ -546,7 +550,7 @@ li input{
   top:140px;
   left:40px;
   padding: 3px 50px 3px 50px;
-  background-color: #03AAD2;
+  background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
   border: none;
   border-radius: 5px;
   cursor: pointer;
