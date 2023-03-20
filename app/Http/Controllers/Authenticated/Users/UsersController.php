@@ -35,8 +35,9 @@ class UsersController extends Controller
         $user = User::with('subjects')->findorFail($id);
         // dd($user);
         //  dd($user);
-        $subject=Subjects::get();
-        return view('authenticated.users.profile', compact('user','subject'));
+        $subjects=Subjects::get();
+        // dd($subject);
+        return view('authenticated.users.profile', compact('user','subjects'));
         
     }
 

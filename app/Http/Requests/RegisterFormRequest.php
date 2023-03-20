@@ -68,7 +68,7 @@ class RegisterFormRequest extends FormRequest
             'over_name_kana.max'=>'苗字は30字以内で入力ください。',
             'over_name_kana.regex'=>'苗字はカナで入力してください。',
             'under_name_kana.required' =>'名前は必ず入力してください。',
-            'under_name_kana.string' =>'名前は文字列で入力してください。',
+            'under_name_kana.string' =>'名前は文字列で入力ください。',
             'under_name_kana.max' =>'名前は30字以内で入力ください。',
             'under_name_kana.regex'=>'名前はカナで入力してください。',
             'mail_address.email'=>'メールアドレスの形式で入力してください。',
