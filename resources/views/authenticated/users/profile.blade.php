@@ -26,11 +26,11 @@
               <input type="checkbox" name="subjects[]" value="{{ $subject->id }}">
             @endforeach
             </div>
+        </div>
             <input type="submit" value="編集" class="btn btn-primary edit-btn">
             <input type="hidden" name="user_id" value="{{ $user->id }}">
             {{ csrf_field() }}
           </form>
-        </div>
       </div>
       @else
       @endif

@@ -166,7 +166,10 @@ bottom:170px
 .borderdays-sat .day{
   color:blue
 }
-.days-mon,.days-tue,.days-wed,.days-thu,.days-fri,.days-sat,.days-san{
+.days-mon,.days-tue,.days-wed,.days-thu,.days-fri,.days-sat{
+  background-color: #fff;
+}
+.days-sun{
   background-color: #fff;
 }
 .past-day{
