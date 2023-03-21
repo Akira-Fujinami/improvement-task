@@ -169,9 +169,6 @@ bottom:170px
 .days-mon,.days-tue,.days-wed,.days-thu,.days-fri,.days-sat,.days-san{
   background-color: #fff;
 }
-td.border.days-tue{
-  border-bottom: 1px solid black;
-}
 .past-day{
   background:#EEE;
 }
@@ -571,7 +568,7 @@ border-radius: 3px;
 }
 .pt-reserve{
   position: relative;
-  bottom:56px;
+  bottom:10px;
   right:7px;
   background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
 }
@@ -640,35 +637,32 @@ border-radius: 3px;
   bottom:25px
 }
 tr:nth-child(even){
-background: #fff;
+background: #eee;
 position: relative;
 bottom:1px
 }
 tr:nth-child(odd){
-  background:#DDFFFF;
-  width:200%;
-  padding:30px;
+  background-color: #ddfffd;
   position: relative;
   bottom:1px
-}
-tr .calendar{
-  background: #fff;
 }
 tr:nth-child(1){
   background: none;
 }
 .detail-users{
   justify-content: space-between;
-  width:200px
+  width:200px;
+
 }
-.detail-id-color,.detail-name-color,.detail-place-color{
-  position: relative;
-  bottom:24px;
-}
+
 .detail-id-color{
+  width:400px;
   position: relative;
-  left:0px;
-  width:400px
+  bottom:15px
+}
+.detail-name-color,.detail-place-color{
+  position: relative;
+  bottom:15px
 }
 .post-search{
   margin-top: 10px;
