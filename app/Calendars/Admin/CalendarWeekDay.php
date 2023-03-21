@@ -39,7 +39,7 @@ class CalendarWeekDay{
       if($reservesetting_count>0){
       $one_part_reserve = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '1')->first()->id;
     // dd($one_part);
-    $one_part=ReservesettingUsers::where('reserve_setting_id',$one_part_reserve)->count();
+    $one_part=ReserveSettingUsers::where('reserve_setting_id',$one_part_reserve)->count();
     }
     else{
       $one_part = "0";
@@ -58,7 +58,7 @@ class CalendarWeekDay{
       $reservesetting_count=ReserveSettings::select()->count();
       if($reservesetting_count>0){
       $two_part_reserve = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '2')->first()->id;
-      $two_part=ReservesettingUsers::where('reserve_setting_id',$two_part_reserve)->count();
+      $two_part=ReserveSettingUsers::where('reserve_setting_id',$two_part_reserve)->count();
     }
     else{
       $two_part="0";
@@ -76,7 +76,7 @@ class CalendarWeekDay{
       $reservesetting_count=ReserveSettings::select()->count();
       if($reservesetting_count>0){
       $three_part_reserve = ReserveSettings::with('users')->where('setting_reserve', $day)->where('setting_part', '3')->first()->id;
-      $three_part=ReservesettingUsers::where('reserve_setting_id',$three_part_reserve)->count();
+      $three_part=ReserveSettingUsers::where('reserve_setting_id',$three_part_reserve)->count();
     }
     else{
       $three_part="0";
