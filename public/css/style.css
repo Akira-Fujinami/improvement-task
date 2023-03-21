@@ -572,7 +572,7 @@ border-radius: 3px;
 }
 .pt-reserve{
   position: relative;
-  bottom:10px;
+  bottom:80px;
   right:7px;
   background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
 }
@@ -655,30 +655,23 @@ border-radius: 3px;
 tr:nth-child(even){
 background: #eee;
 position: relative;
-bottom:1px
+bottom:0px;
 }
 tr:nth-child(odd){
   background-color: #ddfffd;
-  position: relative;
-  bottom:1px
 }
 tr:nth-child(1){
   background: none;
-}
-.detail-users{
-  justify-content: space-between;
-  width:200px;
-
 }
 
 .detail-id-color{
   width:400px;
   position: relative;
-  bottom:15px
+  bottom:12px
 }
 .detail-name-color,.detail-place-color{
   position: relative;
-  bottom:15px
+  bottom:12px
 }
 .post-search{
   margin-top: 10px;
