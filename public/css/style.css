@@ -294,8 +294,6 @@ bottom:190px
   white-space: nowrap;
   background-color: #03AAD2;
   font-size: smaller;
-  position: relative;
-  bottom:20px
 }
 .post-create{
   padding:3% 41% 3% 41%;
@@ -392,7 +390,7 @@ bottom:190px
   background:orange;
   color:#FFF;
   position: relative;
-  left:10px;
+  left:35px;
   padding: 2% 11% 2% 8%;
   margin: 10px 0px 10px 0px;
   cursor: pointer;
@@ -544,10 +542,11 @@ li input{
 position: relative;
 left:80%;
 bottom:25px;
-padding:1px 5px 1px 5px;
+padding:1px 9px 1px 10px;
 background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
 border: none;
 border-radius: 3px;
+cursor: pointer;
 }
 .search-image-text{
   border-radius: 10px;
@@ -704,6 +703,7 @@ tr:nth-child(1){
 }
 .category-span{
   position: relative;
+  white-space: nowrap;
 }
 .category-select{
   border-radius: 100vh;
