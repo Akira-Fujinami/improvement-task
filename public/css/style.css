@@ -194,7 +194,6 @@ bottom:170px
 .adjust-table-btn{
   width:70%;
 }
-
 /* モーダル */
 .modal{
     display: none;
@@ -484,7 +483,7 @@ li input{
   flex-wrap:wrap;
   width:800px;
   margin:10px auto;
-  height:85vh;
+  height:90vh;
   overflow: scroll;
   padding:10px;
   background:#FFF;
@@ -492,7 +491,8 @@ li input{
 }
 .select-sex{
   position: relative;
-  bottom:10px
+  bottom:10px;
+  width:90%
 }
 .select-role{
   position: relative;
@@ -532,7 +532,8 @@ li input{
 }
 .selected-role,.selected-sex,.selected-engineer{
   position: relative;
-  left:27px
+  left:27px;
+  width:90%
 }
 .edit-btn{
   position: relative;
@@ -597,15 +598,27 @@ border-radius: 3px;
   left:30px;
   bottom:25px
 }
+.detail-place-title-null{
+  position: relative;
+  left:350px;
+  bottom:25px
+}
 .detail-place{
   position: relative;
   left:30px
 }
-.reserve-dates,.reserve-parts{
+.reserve-dates{
   border:none;
   background: none;
   position: relative;
   bottom:7px;
+}
+.reserve-parts{
+  border:none;
+  background: none;
+  position: relative;
+  bottom:7px;
+  left:30px
 }
 .reserve-dating,.reserve-parting{
   display: flex;
@@ -751,6 +764,10 @@ tr:nth-child(1){
   color:#FFF
 }
 .reserve-part{
+  position: relative;
+  left:20px;
+}
+.reserve-part-frame{
   position: relative;
   left:20px;
   color:#03AAD2

@@ -53,7 +53,7 @@
     @endforeach
   </div>
   <div class="search_area w-25 border">
-    <div class="">    
+    <div class="search-word-area">    
       <span class="search-word">検索</span>
       <div>
         <input type="text" class="free_word search-keyword" name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
@@ -106,7 +106,7 @@
           </select>
           </div>
         </div>
-</div>
+      </div>
       <div>
         <input type="reset" class="reset" value="リセット" form="userSearchRequest">
       </div>

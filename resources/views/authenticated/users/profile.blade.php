@@ -9,7 +9,7 @@
       <p>カナ : <span>{{ $user->over_name_kana}}</span><span class="ml-1">{{ $user->under_name_kana }}</span></p>
       <p>性別 : @if($user->sex == 1)<span>男</span>@else<span>女</span>@endif</p>
       <p>生年月日 : <span>{{ $user->birth_day }}</span></p>
-  @if($user->role == 4)
+      @if($user->role == 4)
       <div>選択科目 :
       @foreach($user->subjects as $subject)
         <span>{{$subject->subject}}</span>
@@ -24,7 +24,7 @@
               @foreach($subjects as $subject)
               <label>{{$subject->subject}}</label>
               <input type="checkbox" name="subjects[]" value="{{ $subject->id }}">
-            @endforeach
+              @endforeach
             </div>
         </div>
             <input type="submit" value="編集" class="btn btn-primary edit-btn">

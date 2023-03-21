@@ -31,16 +31,19 @@ class CalendarSettingView{
     $html[] = '</thead>';
     $html[] = '<tbody>';
     $weeks = $this->getWeeks();
-
+    $days=date('Y-m-d',strtotime('yesterday'));
     foreach($weeks as $week){
       $html[] = '<tr class="'.$week->getClassName().'">';
+
       $days = $week->getDays();
       foreach($days as $day){
-        $startDay = $this->carbon->format("Y-m-01");
-        $toDay = $this->carbon->yesterday()->format("Y-m-d");
+        $startDay = $this->carbon->copy()->format("Y-m-01");
 
-       if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<td class="past-day border'.$day->pastClassName().'">';
+        
+        $toDay = $this->carbon->yesterday()->copy()->format("Y-m-d");
+        // dd($day);
+        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
+          $html[] = '<td class="past-day border '.$day->pastClassName().'">';
         }else{
           $html[] = '<td class="border '.$day->getClassName().'">';
         }
