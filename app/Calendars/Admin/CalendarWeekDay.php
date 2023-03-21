@@ -13,9 +13,11 @@ class CalendarWeekDay{
   }
 
   function getClassName(){
-    return "day-" . strtolower($this->carbon->format("D"));
+    return "days-" . strtolower($this->carbon->format("D"));
   }
-
+  function pastClassName(){
+    return "days-" . strtolower($this->carbon->format("D"));
+  }
   function render(){
     return '<p class="day">' . $this->carbon->format("j") . '日</p>';
   }

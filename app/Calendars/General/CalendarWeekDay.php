@@ -18,7 +18,7 @@ class CalendarWeekDay{
   }
 
   function pastClassName(){
-    return;
+    return"days-" . strtolower($this->carbon->format("D"));
   }
 
   /**

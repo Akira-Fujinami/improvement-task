@@ -1,0 +1,46 @@
+@charset "utf-8";
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* body */
+.all_content{
+  background:#ECF1F6;
+}
+ul,
+li{
+  list-style:none;
+}
+/* スクール予約関連 */
+.day-blank{
+  background:#D3D3D3;
+}
+.days-sat .day{
+  color:#0000FF;
+}
+.days-sun .day{
+  color:red;
+}
+.past-day{
+  background:#EEE;
+}
+.calendar-td{
+  min-width:100px;
+}
+.day_part{
+  color:#494949;
+  font-size:12px;
+}
+.adjust-table{
+  width:70% !important;
+}
+.adjust-table td{
+  padding:0 !important;
+}
+.adjust-area p{
+  justify-content: space-around;
+}
+.adjust-table-btn{
+  width:70%;
+}

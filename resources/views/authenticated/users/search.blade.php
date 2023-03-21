@@ -53,7 +53,7 @@
     @endforeach
   </div>
   <div class="search_area w-25 border">
-    <div class="">
+    <div class="">    
       <span class="search-word">検索</span>
       <div>
         <input type="text" class="free_word search-keyword" name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
@@ -73,33 +73,40 @@
         </select>
       </div>
       <div class="search-add">
-        <p class="m-0 search_conditions"><span>検索条件の追加</span></p>
+        <div class="accordion-search js-accordion-search"></div>
+          <p class="m-0 search_conditions"><span>検索条件の追加</span></p>
         <div class="search_conditions_inner">
           <div class="selected-sex">
             <label>性別</label>
-            <span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
-            <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
+            <div class="select-sex">
+              <span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
+              <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
+            </div>
           </div>
           <div class="selected-role">
             <label>権限</label>
-            <select name="role" form="userSearchRequest" class="engineer">
-              <option selected disabled>----</option>
-              <option value="1">教師(国語)</option>
-              <option value="2">教師(数学)</option>
-              <option value="3">教師(英語)</option>
-              <option value="4" class="">生徒</option>
-            </select>
+            <div>
+              <select name="role" form="userSearchRequest" class="select-role">
+                <option selected disabled>----</option>
+                <option value="1">教師(国語)</option>
+                <option value="2">教師(数学)</option>
+                <option value="3">教師(英語)</option>
+                <option value="4" class="">生徒</option>
+              </select>
+            </div>
           </div>
           <div class="selected-engineer">
           <label>選択科目</label>
-            @foreach($subjects as $subject)
-            <input type="checkbox" name="subject[]" value="{{$subject->id}}" form="userSearchRequest">
-            <label>{{$subject->subject}}</label>
-            @endforeach
+            <div class="select-engineer">
+              @foreach($subjects as $subject)
+              <input type="checkbox" name="subject[]" value="{{$subject->id}}" form="userSearchRequest">
+              <label>{{$subject->subject}}</label>
+              @endforeach
+            </div>
           </select>
           </div>
         </div>
-      </div>
+</div>
       <div>
         <input type="reset" class="reset" value="リセット" form="userSearchRequest">
       </div>

@@ -55,7 +55,8 @@ class PostsController extends Controller
     }
 
     public function postDetail($post_id){
-        $post = Post::with('user', 'postComments')->findOrFail($post_id);
+        $post = Post::with('user', 'postComments','subcategories')->findOrFail($post_id);
+        // dd($post);
         $comment=PostComment::groupBy('post_id')->get();
         return view('authenticated.bulletinboard.post_detail', compact('post','comment'));
     }

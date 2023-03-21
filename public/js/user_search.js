@@ -1,9 +1,11 @@
 $(function () {
-  $('.search_conditions').click(function () {
-    $('.search_conditions_inner').slideToggle();
+  $('.accordion-search').on("click",function () {
+    $(".search_conditions_inner").slideToggle();
+    $(".accordion-search").toggleClass("open");
   });
 
-  $('.subject_edit_btn').click(function () {
+  $('.accordion-edit').click(function () {
+    $(".accordion-edit").toggleClass("open");
     $('.subject_inner').slideToggle();
   });
 });

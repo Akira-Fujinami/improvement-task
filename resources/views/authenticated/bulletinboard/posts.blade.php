@@ -39,11 +39,11 @@
       <div class="post-search">
         <span>検索</span>
         <input type="text" class="search-image-text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
-        <input type="image" class="search-images" src="../images/検索窓.png" alt="検索ボタン" form="postSearchRequest">
+        <input type="submit" class="search-images" value="検索" form="postSearchRequest">
       </div>
       <input type="submit" name="like_posts" class="category_btn_like" value="いいねした投稿" form="postSearchRequest">
       <input type="submit" name="my_posts" class="category_btn_mine" value="自分の投稿" form="postSearchRequest">
-      <sopan class="category-span">カテゴリー</span>
+      <sopan class="category-span">カテゴリー検索</span>
       <ul>
         @foreach($main_categories as $main_category)
         <div class="accordion js-accordion">
