@@ -27,12 +27,9 @@ class CalendarsController extends Controller
         $reservePersons=ReserveSettings::with('users')->where('id',$reserveDetail)->get();
         // dd($reservePersons);
         $Date=ReserveSettings::where('id',$reserveDetail)->first();
-        if($reservePersons==null){
-            return view('authenticated.calendar.admin.reserve_detail_null',compact('Date'));
-        }
-        else{
+
         return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons','Date'));
-    }}
+    }
 
     public function reserveSettings(){
         $calendar = new CalendarSettingView(time());
