@@ -572,7 +572,7 @@ cursor: pointer;
 .pt-reserve{
   position: relative;
   bottom:80px;
-  right:7px;
+  right:2%;
   background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
 }
 .text-right input{
