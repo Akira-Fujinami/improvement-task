@@ -7,10 +7,10 @@
     <div class="h-75 border">
       <table class="text-center">
         <div class="text-center-id">
-          <tr class="text-center">
-            <th class="w-25 detail-id-title">ID</th>
-            <th class="w-25 detail-name-title">名前</th>
-            <th class="w-25 detail-place-title">場所</th>
+          <tr class="text-center-null">
+            <th class="w-25 detail-id-title-null">ID</th>
+            <th class="w-25 detail-name-title-null">名前</th>
+            <th class="w-25 detail-place-title-null">場所</th>
           </tr>
         </div>
         <tr class="text-center">

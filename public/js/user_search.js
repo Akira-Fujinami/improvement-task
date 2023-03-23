@@ -10,6 +10,7 @@ $(function () {
     $('.edit-btn').slideToggle();
   });
   $(".subject_edit_btn").click(function(){
+    $(".accordion-edit").toggleClass("open");
     $('.subject_inner').slideToggle();
     $('.edit-btn').slideToggle();
   })

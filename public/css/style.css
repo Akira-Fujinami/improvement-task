@@ -12,17 +12,29 @@ ul,
 li{
   list-style:none;
 }
-.error-over_kana,.error-under_kana,.error-birth,.error-password,.error-sex,.error-role{
+.error-birth,.error-sex,.error-role{
   position: relative;
   color:red;
   font-size:5%;
   bottom:65px
 }
+.error-password{
+  position: relative;
+  color:red;
+  font-size:5%;
+  bottom:68px
+}
+.error-over_kana,.error-under_kana{
+  position: relative;
+  color:red;
+  font-size:5%;
+  bottom:68px
+}
 .error-overname,.error-undername{
   position: relative;
   color:red;
   font-size:5%;
-  bottom:52px
+  bottom:55px
 }
 .error-mail{
   position: relative;
@@ -194,6 +206,140 @@ bottom:28%
 .adjust-table-btn{
   width:70%;
 }
+.pt-cancel{
+  position: relative;
+  left:30%;
+}
+.pt-close{
+  position: relative;
+  right:30%;
+}
+.pt-reserve{
+  position: relative;
+  bottom:80px;
+  right:2%;
+  background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
+}
+.text-right input{
+  color: #fff;
+}
+.text-center-id{
+  background: #03AAD2;
+  width: 100%;
+  height: 7%;
+}
+.detail-id-title{
+  position: relative;
+  left:0%;
+  bottom:25px
+}
+.detail-name-title{
+  position: relative;
+  bottom:25px
+}
+.detail-place-title{
+  position: relative;
+  left:5%;
+  bottom:25px
+}
+.detail-place{
+  position: relative;
+  left:30px
+}
+.reserve-dates{
+  border:none;
+  background: none;
+  position: relative;
+  bottom:7px;
+}
+.reserve-parts{
+  border:none;
+  background: none;
+  position: relative;
+  bottom:7px;
+  left:30px
+}
+.reserve-dating,.reserve-parting{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left:30%;
+}
+.reserve-name{
+  white-space: nowrap;
+  padding: 10px;
+}
+.reserve-detail{
+  border:none;
+  background: transparent;
+  cursor: pointer;
+}
+.reserve-part-frame{
+  color:#03AAD2;
+  background: transparent;
+  border:none;
+  outline:none;
+  cursor: pointer;
+}
+.reserve-detail:hover,.reserve-part-frame:hover{
+  border-bottom: 2px solid #03AAD2;
+  text-underline-offset:10px;
+}
+.reserve-detail:active,.reserve-part-frame:active{
+  background: transparent;
+  border:none;
+  outline: none;
+}
+.reserve-detail-div{
+flex-direction: column;
+justify-content: space-between;
+position: relative;
+left:70px
+}
+.reserve-part-frame-div{
+  flex-direction: column;
+justify-content: space-between;
+position: relative;
+left:10px
+}
+.reserve-detail-wrap{
+  display: flex;
+}
+.reserve-place{
+  white-space: nowrap;
+  position: relative;
+  left:200px;
+  bottom:25px
+}
+tr:nth-child(even){
+background: #eee;
+position: relative;
+bottom:0px;
+}
+tr:nth-child(odd){
+  background-color: #ddfffd;
+}
+tr:nth-child(1){
+  background: none;
+}
+
+.detail-id-color{
+  width:400px;
+  position: relative;
+  bottom:12px
+}
+.detail-name-color,.detail-place-color{
+  position: relative;
+  bottom:12px
+}
+.primary-border{
+  font-size: small;
+}
+.reserve-part{
+  position: relative;
+  left:20px;
+}
+
 /* モーダル */
 .modal{
     display: none;
@@ -308,10 +454,6 @@ bottom:28%
 .post-create a:hover{
   color:#fff;
   font-weight: bold;
-}
-.research{
-  background: none;
-  border: none;
 }
 /* 掲示板 詳細画面 */
 .contributor{
@@ -487,6 +629,32 @@ li input{
   background:#FFF;
   border-radius:5px;
 }
+.search-word{
+  position: relative;
+  top:50px;
+  left:27px;
+  font-size: larger;
+  font-weight: bold;
+}
+.search-keyword{
+  border-radius: 5%;
+  position: relative;
+  top:50px;
+  left:27px;
+  border-radius: 100vh;
+  padding-right: -200px;
+  background-color: #f2f2f2;
+}
+.search-category{
+  position: relative;
+  top:70px;
+  right:13px
+}
+.category-word{
+  font-size: small;
+  position: relative;
+  left:15%
+}
 .select-sex{
   position: relative;
   bottom:10px;
@@ -503,10 +671,7 @@ li input{
   position: relative;
   bottom:10px
 }
-.selected-role{
-  position: relative;
-  bottom:10px
-}
+
 .reserve_users_area span{
   font-size:12px;
 }
@@ -561,162 +726,10 @@ cursor: pointer;
 .subject_inner{
   display:none;
 }
-.pt-cancel{
-  position: relative;
-  left:30%;
-}
-.pt-close{
-  position: relative;
-  right:30%;
-}
-.pt-reserve{
-  position: relative;
-  bottom:80px;
-  right:2%;
-  background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
-}
-.text-right input{
-  color: #fff;
-}
-.text-center-id{
-  background: #03AAD2;
-  width: 100%;
-  height: 7%;
-}
-.detail-id-title{
-  position: relative;
-  left:0px;
-  bottom:25px
-}
-.detail-name-title{
-  position: relative;
-  bottom:25px
-}
-.detail-place-title{
-  position: relative;
-  left:30px;
-  bottom:25px
-}
-.detail-place-title-null{
-  position: relative;
-  left:350px;
-  bottom:25px
-}
-.detail-place{
-  position: relative;
-  left:30px
-}
-.reserve-dates{
-  border:none;
-  background: none;
-  position: relative;
-  bottom:7px;
-}
-.reserve-parts{
-  border:none;
-  background: none;
-  position: relative;
-  bottom:7px;
-  left:30px
-}
-.reserve-dating,.reserve-parting{
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  left:30%;
-}
-.reserve-name{
-  white-space: nowrap;
-  padding: 10px;
-}
-.reserve-detail{
-  border:none;
-  background: transparent;
-  cursor: pointer;
-}
-.reserve-part-frame{
-  color:#03AAD2
-}
-.reserve-detail:hover,.reserve-part-frame{
-  border-bottom: 2px solid #03AAD2;
-  text-underline-offset:10px;
-}
-.reserve-detail:active,.reserve-part-frame{
-  background: transparent;
-  border:none;
-  outline: none;
-}
-.reserve-detail-div{
-flex-direction: column;
-justify-content: space-between;
-position: relative;
-left:70px
-}
-.reserve-part-frame-div{
-  flex-direction: column;
-justify-content: space-between;
-position: relative;
-left:10px
-}
-.reserve-detail-wrap{
-  display: flex;
-}
-.reserve-place{
-  white-space: nowrap;
-  position: relative;
-  left:200px;
-  bottom:25px
-}
-tr:nth-child(even){
-background: #eee;
-position: relative;
-bottom:0px;
-}
-tr:nth-child(odd){
-  background-color: #ddfffd;
-}
-tr:nth-child(1){
-  background: none;
-}
-
-.detail-id-color{
-  width:400px;
-  position: relative;
-  bottom:12px
-}
-.detail-name-color,.detail-place-color{
-  position: relative;
-  bottom:12px
-}
 .post-search{
   margin-top: 10px;
 }
-.search-word{
-  position: relative;
-  top:50px;
-  left:27px;
-  font-size: larger;
-  font-weight: bold;
-}
-.search-keyword{
-  border-radius: 5%;
-  position: relative;
-  top:50px;
-  left:27px;
-  border-radius: 100vh;
-  padding-right: -200px;
-  background-color: #f2f2f2;
-}
-.search-category{
-  position: relative;
-  top:70px;
-  right:13px
-}
-.category-word{
-  font-size: small;
-  position: relative;
-  left:15%
-}
+
 .category-span{
   position: relative;
   white-space: nowrap;
@@ -766,16 +779,6 @@ tr:nth-child(1){
   border-radius: 5px;
   cursor: pointer;
 }
-.border-primary{
-  font-size: small;
-}
 .delete-btn a{
   color:#FFF
-}
-.reserve-part{
-  position: relative;
-  left:20px;
-}
-.reserve-setting{
-  width:10px
 }

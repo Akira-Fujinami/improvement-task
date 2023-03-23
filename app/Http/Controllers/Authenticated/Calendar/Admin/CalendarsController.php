@@ -31,8 +31,7 @@ class CalendarsController extends Controller
             return view('authenticated.calendar.admin.reserve_detail_null',compact('Date'));
         }
         else{
-        $reservePlace=array('リモート');
-        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons','Date','reservePlace'));
+        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons','Date'));
     }}
 
     public function reserveSettings(){
