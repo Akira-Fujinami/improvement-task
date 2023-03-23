@@ -50,7 +50,7 @@ li{
   width:12%;
 position: relative;
 left:18%;
-bottom:190px
+bottom:28%
 }
 .login-border{
   position: relative;
@@ -633,17 +633,33 @@ cursor: pointer;
   border:none;
   background: transparent;
   cursor: pointer;
-  position: relative;
-  left:20px
 }
-.reserve-detail:hover{
+.reserve-part-frame{
+  color:#03AAD2
+}
+.reserve-detail:hover,.reserve-part-frame{
   border-bottom: 2px solid #03AAD2;
   text-underline-offset:10px;
 }
-.reserve-detail:active{
+.reserve-detail:active,.reserve-part-frame{
   background: transparent;
   border:none;
   outline: none;
+}
+.reserve-detail-div{
+flex-direction: column;
+justify-content: space-between;
+position: relative;
+left:70px
+}
+.reserve-part-frame-div{
+  flex-direction: column;
+justify-content: space-between;
+position: relative;
+left:10px
+}
+.reserve-detail-wrap{
+  display: flex;
 }
 .reserve-place{
   white-space: nowrap;
@@ -759,11 +775,6 @@ tr:nth-child(1){
 .reserve-part{
   position: relative;
   left:20px;
-}
-.reserve-part-frame{
-  position: relative;
-  left:20px;
-  color:#03AAD2
 }
 .reserve-setting{
   width:10px

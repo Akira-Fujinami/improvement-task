@@ -9,6 +9,10 @@ $(function () {
     $('.subject_inner').slideToggle();
     $('.edit-btn').slideToggle();
   });
+  $(".subject_edit_btn").click(function(){
+    $('.subject_inner').slideToggle();
+    $('.edit-btn').slideToggle();
+  })
 });
 $(".subcategories").hide();
 $(function () {

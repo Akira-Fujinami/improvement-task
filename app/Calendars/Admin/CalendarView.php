@@ -52,21 +52,21 @@ class CalendarView{
         $html[] = $day->render();
         if($day->everyDay()){
           if(ReserveSettings::select()->exists()){            
-        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<p class="d-flex m-0 p-0 reserve-part-frame">1部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button></p>';
+          $html[]='<div class="reserve-detail-wrap">';
+          $html[]='<div class="reserve-detail-div">';
+          $html[] ='<div><button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button></div>';
+          $html[] = '<div><button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_two($day->everyDay()).'</button></div>';
+          $html[] = '<div><button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_three($day->everyDay()).'</button></div>';
+          $html[]='</div>';
+          $html[]='<div class="reserve-part-frame-div">';
+          $html[]='<div><button type="submit" class="reserve-part-frame" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">1部</button></div>';
           $html[]='<input type="hidden" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
-          $html[] = '<p class="d-flex m-0 p-0 reserve-part-frame">2部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_two($day->everyDay()).'</button></p>';
+          $html[] = '<div><button type="submit" class="reserve-part-frame" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">2部</button></div>';
           $html[]='<input type="hidden" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">';
-          $html[] = '<p class="d-flex m-0 p-0 reserve-part-frame">3部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_three($day->everyDay()).'</button></p>';
+          $html[] = '<div><button type="submit" class="reserve-part-frame" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">3部</button></div>';
           $html[]='<input type="hidden" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">';
-        }else{
-          $html[] = '<p class="d-flex m-0 p-0 reserve-part-frame">1部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_one($day->everyDay()).'</button></p>';
-          $html[]='<input type="hidden" value='.$day->reserveDetail_one($day->everyDay())->first()->id.' form="reserveDetail">';
-          $html[] = '<p class="d-flex m-0 p-0 reserve-part-frame">2部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_two($day->everyDay()).'</button></p>';
-          $html[]='<input type="hidden" value='.$day->reserveDetail_two($day->everyDay())->first()->id.' form="reserveDetail">';
-          $html[] = '<p class="d-flex m-0 p-0 reserve-part-frame">3部<button type="submit" class="reserve-detail" name="reserveDetail" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">'.$day->dayPartCounts_three($day->everyDay()).'</button></p>';
-          $html[]='<input type="hidden" value='.$day->reserveDetail_three($day->everyDay())->first()->id.' form="reserveDetail">';
-        }
+          $html[]='</div>';
+          $html[]='</div>';
       }
       }
         $html[] = '</td>';
