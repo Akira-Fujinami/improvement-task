@@ -8,9 +8,9 @@
       <div class="calendar-render">
         {!! $calendar->render() !!}
       </div>
-    </div>
-    <div class="text-right w-75 m-auto">
-      <input type="submit" class="btn pt-reserve" value="予約する" form="reserveParts">
+      <div class="text-right w-75 m-auto">
+        <input type="submit" class="btn pt-reserve" value="予約する" form="reserveParts">
+      </div>
     </div>
   </div>
 </div>
