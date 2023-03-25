@@ -526,8 +526,11 @@ tr:nth-child(1){
   border:none;
   background:pink;
   color:#FFF;
-  padding: 2% 4% 2% 4%;
+  padding: 2% 5% 2% 5%;
   cursor: pointer;
+}
+.category_btn{
+  text-align: center;
 }
 .category_btn_mine{
   font-size:12px;
@@ -536,8 +539,8 @@ tr:nth-child(1){
   border:none;
   background:orange;
   color:#FFF;
-  padding: 2% 11% 2% 8%;
-  margin: 10px 0px 10px 0px;
+  padding: 2% 8% 2% 8%;
+white-space: nowrap;
   cursor: pointer;
 }
 .sub_categories li input{
@@ -714,8 +717,9 @@ li input{
 .search-images{
 position: relative;
 width:20%;
-left:80%;
-bottom:25px;
+left:75%;
+align-items: left;
+bottom:24px;
 background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
 border: none;
 border-radius: 3px;
@@ -737,6 +741,7 @@ cursor: pointer;
 }
 .post-search{
   margin-top: 10px;
+  text-align: left;
 }
 
 .category-span{
