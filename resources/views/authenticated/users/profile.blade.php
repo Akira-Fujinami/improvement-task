@@ -11,7 +11,7 @@
       <p>生年月日 : <span>{{ $user->birth_day }}</span></p>
       @if($user->role == 4)
       <div>選択科目 :
-      @foreach($user->subjects as $subject)
+        @foreach($user->subjects as $subject)
         <span>{{$subject->subject}}</span>
         @endforeach
       </div>

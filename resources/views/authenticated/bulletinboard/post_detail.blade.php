@@ -8,7 +8,7 @@
           <div class="comment">
             @if($errors->has('comment'))
 			        @foreach($errors->get('comment') as $message)
-				        {{ $message }}<br>
+				      {{ $message }}<br>
 			        @endforeach
 		        @endif 
           </div>
@@ -58,7 +58,7 @@
         <div class="comment">
           @if($errors->has('comment'))
 			      @foreach($errors->get('comment') as $message)
-				      {{ $message }}<br>
+				    {{ $message }}<br>
 			      @endforeach
 		      @endif 
         </div>

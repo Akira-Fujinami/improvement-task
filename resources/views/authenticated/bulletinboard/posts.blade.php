@@ -10,7 +10,7 @@
       <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
       <button class="post-subcategory">
         @foreach($post->subcategories as $subcategory)
-          {{$subcategory->sub_category}}
+        {{$subcategory->sub_category}}
         @endforeach
       </button>
       <div class="post_bottom_area d-flex">

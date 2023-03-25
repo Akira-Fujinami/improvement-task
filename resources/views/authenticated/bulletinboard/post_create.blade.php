@@ -41,7 +41,7 @@
         <div class="main_category">
           @if($errors->has('main_category_name'))
 			      @foreach($errors->get('main_category_name') as $message)
-				      {{ $message }}<br>
+				    {{ $message }}<br>
 			      @endforeach
 		      @endif 
         </div>
@@ -61,7 +61,7 @@
         <div class="sub_category">
           @if($errors->has('sub_category_name'))
 			      @foreach($errors->get('sub_category_name') as $message)
-				      {{ $message }}<br>
+				    {{ $message }}<br>
 			      @endforeach
 		      @endif 
         </div>

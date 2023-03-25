@@ -26,7 +26,7 @@
               <div class="error-overname">
                 @if($errors->has('over_name'))
 			            @foreach($errors->get('over_name') as $message)
-				            {{ $message }}<br>
+				          {{ $message }}<br>
 			            @endforeach
 		            @endif 
               </div>
@@ -39,7 +39,7 @@
               <div class="error-undername">
                 @if($errors->has('under_name'))
 			            @foreach($errors->get('under_name') as $message)
-				            {{ $message }}<br>
+				          {{ $message }}<br>
 			            @endforeach
 		            @endif 
               </div>
@@ -54,7 +54,7 @@
               <div class="error-over_kana">
                 @if($errors->has('over_name_kana'))
 			            @foreach($errors->get('over_name_kana') as $message)
-				            {{ $message }}<br>
+				          {{ $message }}<br>
 			            @endforeach
 		            @endif 
               </div>
@@ -67,7 +67,7 @@
               <div class="error-under_kana">
                 @if($errors->has('under_name_kana'))
 			            @foreach($errors->get('under_name_kana') as $message)
-				            {{ $message }}<br>
+				          {{ $message }}<br>
 			            @endforeach
 		            @endif 
               </div>
@@ -80,10 +80,10 @@
             </div>
             <div class="error-mail">
               @if($errors->has('mail_address'))
-			            @foreach($errors->get('mail_address') as $message)
-				            {{ $message }}<br>
-			            @endforeach
-		            @endif 
+			          @foreach($errors->get('mail_address') as $message)
+				        {{ $message }}<br>
+			          @endforeach
+		          @endif 
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
           <div class="error-sex">
             @if($errors->has('sex'))
 			        @foreach($errors->get('sex') as $message)
-				        {{ $message }}<br>
+				      {{ $message }}<br>
 			        @endforeach
 		        @endif
           </div>
@@ -196,7 +196,7 @@
           <div class="error-birth">
             @if($errors->has('datetime_validation'))
 			        @foreach($errors->get('datetime_validation') as $message)
-				        {{ $message }}<br>
+				      {{ $message }}<br>
 			        @endforeach
 		        @endif 
           </div>
@@ -214,7 +214,7 @@
           <div class="error-role">
             @if($errors->has('role'))
 			        @foreach($errors->get('role') as $message)
-				        {{ $message }}<br>
+				      {{ $message }}<br>
 			        @endforeach
 		        @endif
           </div>
@@ -236,7 +236,7 @@
           <div class="error-password">
             @if($errors->has('password'))
 			        @foreach($errors->get('password') as $message)
-				        {{ $message }}<br>
+				      {{ $message }}<br>
 			        @endforeach
 		        @endif 
           </div>
