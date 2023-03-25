@@ -521,6 +521,9 @@ tr:nth-child(1){
   font-size:10px;
   color:#FFF;
 }
+.category_btn{
+  padding-left: 25px;
+}
 .category_btn_like{
   font-size:12px;
   border-radius:5px;
@@ -538,8 +541,6 @@ tr:nth-child(1){
   border:none;
   background:orange;
   color:#FFF;
-  position: relative;
-  left:7%;
   padding: 2% 11% 2% 8%;
   margin: 10px 0px 10px 0px;
   cursor: pointer;
