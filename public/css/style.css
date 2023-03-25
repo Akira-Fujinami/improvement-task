@@ -565,7 +565,7 @@ li input{
 .accordion-edit:after{
   content: "";
   position: absolute;
-  right: 700px;
+  right: 85%;
   top: 10px;
   transition: all 0.2s ease-in-out;
   display: block;
