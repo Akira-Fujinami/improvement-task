@@ -3,7 +3,7 @@ $(function () {
     $(".search_conditions_inner").slideToggle();
     $(".accordion-search").toggleClass("open");
   });
-  $(".edit-btn").hide();
+
   $('.accordion-edit').click(function () {
     $(".accordion-edit").toggleClass("open");
     $('.subject_inner').slideToggle();
@@ -22,3 +22,8 @@ $(function () {
     $(this).toggleClass("open");
   });
 });
+$(function () {
+  $('.search_conditions').on("click",function () {
+    $(".search_conditions_inner").slideToggle();
+    $(".accordion-search").toggleClass("open");
+  })});
