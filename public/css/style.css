@@ -317,7 +317,6 @@ left:10px
 }
 tr:nth-child(even) td.detail-id-color,tr:nth-child(even) td.detail-name-color,tr:nth-child(even) td.detail-place-color{
 background: #fff;
-padding:3px 0px 3px 0px
 }
 tr:nth-child(odd) td.detail-id-color,tr:nth-child(odd) td.detail-name-color,tr:nth-child(odd) td.detail-place-color{
   background-color: #ddfffd;
@@ -519,10 +518,7 @@ tr:nth-child(1){
   font-size:10px;
   color:#FFF;
 }
-.category_btn{
-  padding:0px 10px 0px 25px;
-  white-space: nowrap;
-}
+
 .category_btn_like{
   font-size:12px;
   border-radius:5px;
@@ -569,7 +565,7 @@ li input{
 .accordion-edit:after{
   content: "";
   position: absolute;
-  right: 750px;
+  right: 700px;
   top: 10px;
   transition: all 0.2s ease-in-out;
   display: block;
