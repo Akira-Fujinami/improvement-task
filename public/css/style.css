@@ -562,10 +562,15 @@ li input{
   position: relative;
   cursor: pointer;
 }
+.accordion-edit-wrap{
+  width:100%;
+  position: relative;
+  left:100px
+}
 .accordion-edit:after{
   content: "";
   position: absolute;
-  right: 85%;
+  right: 95%;
   top: 10px;
   transition: all 0.2s ease-in-out;
   display: block;
@@ -711,7 +716,6 @@ position: relative;
 width:20%;
 left:80%;
 bottom:25px;
-padding:1px 10px 1px 10px;
 background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
 border: none;
 border-radius: 3px;

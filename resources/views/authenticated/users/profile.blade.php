@@ -15,8 +15,10 @@
         <span>{{$subject->subject}}</span>
         @endforeach
       </div>
-      <div class="subject_edit">
+      <div class="accordion-edit-wrap">
         <div class="accordion-edit"></div>
+      </div>
+      <div class="subject_edit">
         <span class="subject_edit_btn">選択科目の編集</span>
         <div class="subject_inner">
           <form action="{{ route('user.edit') }}" method="post">
