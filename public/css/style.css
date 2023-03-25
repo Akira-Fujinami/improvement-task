@@ -220,8 +220,8 @@ bottom:28%
 }
 .pt-reserve{
   position: relative;
-  bottom:80px;
-  right:2%;
+  bottom:35px;
+  right:13%;
   background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
 }
 .text-right input{
