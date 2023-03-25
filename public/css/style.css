@@ -34,13 +34,17 @@ li{
   position: relative;
   color:red;
   font-size:5%;
-  bottom:55px
+  bottom:65px
 }
 .error-mail{
   position: relative;
   color:red;
   font-size:5%;
   bottom:55px
+}
+.over-name,.under-name{
+  position: relative;
+  bottom:10px
 }
 .main_category,.sub_category{
   font-size:10%;
