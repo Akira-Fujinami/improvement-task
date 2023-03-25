@@ -522,7 +522,8 @@ tr:nth-child(1){
   color:#FFF;
 }
 .category_btn{
-  padding-left: 25px;
+  padding:0px 10px 0px 25px;
+  white-space: nowrap;
 }
 .category_btn_like{
   font-size:12px;
