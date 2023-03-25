@@ -315,11 +315,11 @@ left:10px
   left:200px;
   bottom:25px
 }
-tr:nth-child(even){
+tr:nth-child(even) td.detail-id-color,tr:nth-child(even) td.detail-name-color,tr:nth-child(even) td.detail-place-color{
 background: #fff;
 padding:3px 0px 3px 0px
 }
-tr:nth-child(odd) td{
+tr:nth-child(odd) td.detail-id-color,tr:nth-child(odd) td.detail-name-color,tr:nth-child(odd) td.detail-place-color{
   background-color: #ddfffd;
 
 }
