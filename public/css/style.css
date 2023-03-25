@@ -317,13 +317,11 @@ left:10px
 }
 tr:nth-child(even){
 background: #fff;
-position: relative;
-bottom:1px;
+padding:3px 0px 3px 0px
 }
-tr:nth-child(odd){
+tr:nth-child(odd) td{
   background-color: #ddfffd;
-  position: relative;
-  bottom:1px
+
 }
 tr:nth-child(1){
   background: none;
@@ -332,11 +330,11 @@ tr:nth-child(1){
 .detail-id-color{
   width:400px;
   position: relative;
-  bottom:12px
+  bottom:24px
 }
 .detail-name-color,.detail-place-color{
   position: relative;
-  bottom:12px
+  bottom:24px
 }
 .primary-border{
   font-size: small;
