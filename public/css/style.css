@@ -22,7 +22,7 @@ li{
   position: relative;
   color:red;
   font-size:5%;
-  bottom:68px
+  bottom:70px
 }
 .error-over_kana,.error-under_kana{
   position: relative;
@@ -743,11 +743,6 @@ cursor: pointer;
 .post-search{
   margin-top: 10px;
   text-align: left;
-}
-
-.category-span{
-  position: relative;
-
 }
 .category-select{
   border-radius: 100vh;
