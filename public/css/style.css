@@ -432,19 +432,26 @@ tr:nth-child(1){
   left:500px
 }
 .post-subcategory{
-  border-radius: 40vh;
-  height:70%;
+  border-radius: 60vh;
+  height:75%;
+  padding: 3px;
   white-space: nowrap;
   background-color: #03AAD2;
   font-size: smaller;
+  position: relative;
+  top:23px
 }
 .post_detail_subcategory{
-  border-radius: 40vh;
-  height:70%;
-  white-space: nowrap;
-  background-color: #03AAD2;
-  font-size: smaller;
+border-radius: 60vh;
+height:75%;
+padding: 3px;
+white-space: nowrap;
+background-color: #03AAD2;
+font-size: smaller;
+position: relative;
+bottom:20px
 }
+
 .post-create{
   padding:3% 41% 3% 41%;
   border-radius: 5%;
@@ -797,6 +804,14 @@ white-space: nowrap;
   border-radius: 5px;
   cursor: pointer;
   width:45%
+}
+.edit-btn-post{
+  position: relative;
+  top:30%
+}
+.delete-btn{
+  position: relative;
+  top:30%
 }
 .delete-btn a{
   color:#FFF

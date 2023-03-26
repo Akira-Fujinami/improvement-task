@@ -52,9 +52,9 @@
         </div>
         <div class="subcategories">
         @foreach($main_category->subCategories as $subCategory)
-          <li>
-            <input type="submit" name="sub_posts" value="{{$subCategory->sub_category}}" form="postSearchRequest">
-          </li>
+        <li>
+          <input type="submit" name="sub_posts" value="{{$subCategory->sub_category}}" form="postSearchRequest">
+        </li>
         @endforeach
         </div>
         @endforeach
