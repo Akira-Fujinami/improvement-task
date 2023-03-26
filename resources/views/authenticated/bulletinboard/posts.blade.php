@@ -37,7 +37,6 @@
         <a href="{{ route('post.input') }}">投稿</a>
       </div>
       <div class="post-search">
-        <span>検索</span>
         <input type="text" class="search-image-text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
         <input type="submit" class="search-images" value="検索" form="postSearchRequest">
       </div>

@@ -526,8 +526,9 @@ tr:nth-child(1){
   border:none;
   background:pink;
   color:#FFF;
-  padding: 2% 5% 2% 5%;
+  padding: 2% 0% 2% 0%;
   cursor: pointer;
+  width:49%
 }
 .category_btn{
   text-align: center;
@@ -539,9 +540,10 @@ tr:nth-child(1){
   border:none;
   background:orange;
   color:#FFF;
-  padding: 2% 8% 2% 8%;
-white-space: nowrap;
+  padding: 2% 0% 2% 0%;
+  white-space: nowrap;
   cursor: pointer;
+  width:49%;
 }
 .sub_categories li input{
   list-style:none;
@@ -716,9 +718,8 @@ li input{
 }
 .search-images{
 position: relative;
-width:20%;
-left:75%;
-align-items: left;
+width:30%;
+left:70%;
 bottom:24px;
 background: linear-gradient(90deg,rgb(175,223,228), rgb(22, 135, 237));
 border: none;
@@ -729,7 +730,7 @@ cursor: pointer;
   border-radius: 10px;
   box-shadow: none;
   border: none;
-  width:70%
+  width:80%
 }
 .subject_edit_btn{
   font-size:12px;
@@ -746,7 +747,7 @@ cursor: pointer;
 
 .category-span{
   position: relative;
-  white-space: nowrap;
+
 }
 .category-select{
   border-radius: 100vh;
