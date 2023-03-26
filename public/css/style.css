@@ -428,7 +428,7 @@ tr:nth-child(1){
 .button-like{
   position: relative;
   left:80%;
-
+  white-space: nowrap;
 }
 .post-subcategory{
   border-radius: 60vh;
