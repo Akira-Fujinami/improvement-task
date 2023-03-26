@@ -425,7 +425,8 @@ tr:nth-child(1){
 }
 .button-comment{
   position: relative;
-  left:500px
+  left:500px;
+  width:100%
 }
 .comment-count{
   position: relative;
