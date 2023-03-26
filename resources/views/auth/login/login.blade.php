@@ -14,7 +14,7 @@
 </head>
 <body>
   <form action="{{ route('loginPost') }}" method="POST">
-    <div class="w-90 vh-100 d-flex login-border" style="align-items:center; justify-content:center;">
+    <div class="w-100 vh-100 d-flex login-border" style="align-items:center; justify-content:center;">
     <image class="Atlas-images" src="../images/atlas-black.png" alt="Atlas">
       <div class="border vh-50 w-25">
         <div class="w-75 m-auto pt-5">

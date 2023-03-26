@@ -68,6 +68,21 @@ position: relative;
 left:18%;
 bottom:28%
 }
+.calendar-admin{
+  width:85%;
+  height:70%;
+  position: relative;
+  left:7%
+}
+.btn-setting{
+  position: relative;
+  left:4%
+}
+.calendar-setting{
+  width:110%;
+  position: relative;
+  right: 1.5em;
+}
 .login-border{
   position: relative;
   right:90px
@@ -81,7 +96,7 @@ bottom:28%
 }
 .main-container{
   width:100%;
-  height:60%
+  height:60%;
 }
 .sidebar a{
   color:#FFF;
@@ -421,6 +436,9 @@ tr:nth-child(1){
   font-size:10px;
   color:red;
 }
+.category_btn{
+  white-space: nowrap;
+}
 .button-comment{
   position: relative;
   left:115%
@@ -448,7 +466,7 @@ white-space: nowrap;
 background-color: #03AAD2;
 font-size: smaller;
 position: relative;
-bottom:20px
+bottom:10px
 }
 
 .post-create{
