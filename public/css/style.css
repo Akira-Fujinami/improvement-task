@@ -403,10 +403,16 @@ tr:nth-child(1){
 .post_bottom_area{
   justify-content: space-between;
 }
+.button-like span{
+  font-size: small;
+}
 
 .un_like,
 .un_like_btn{
   color:#E2254D;
+}
+.post_like_status{
+  width:100%
 }
 
 .error_message{
@@ -415,11 +421,12 @@ tr:nth-child(1){
 }
 .button-comment{
   position: relative;
-  left:65%
+  left:105%
 }
 .button-like{
   position: relative;
-  left:58%
+  left:80%;
+
 }
 .post-subcategory{
   border-radius: 60vh;
@@ -503,7 +510,7 @@ bottom:20px
   font-size:12px;
 }
 .post_status{
-  width:100%
+  width:250%
 }
 
 /* 掲示板　カテゴリー */

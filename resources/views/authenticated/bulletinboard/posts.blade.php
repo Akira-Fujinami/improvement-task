@@ -18,6 +18,8 @@
           <div class="mr-5 button-comment">
             <i class="fa fa-comment"></i><span class="comment-count">{{$post->postComments()->count()}}</span>
           </div>
+        </div>
+        <div class="post_like_status">
           <div class="mr-5 button-like">
             @if(Auth::user()->is_Like($post->id))
             <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{$post->id}} like-count">{{$like->likeCounts($post->id)}}</span></p>
