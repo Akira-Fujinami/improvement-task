@@ -403,10 +403,12 @@ tr:nth-child(1){
 .post_bottom_area{
   justify-content: space-between;
 }
-.button-like span{
-  font-size: small;
+.button-like-count span{
+  font-size: 11px
 }
-
+.button-comment span{
+  font-size: 5px;
+}
 .un_like,
 .un_like_btn{
   color:#E2254D;
